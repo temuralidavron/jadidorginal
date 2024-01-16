@@ -38,12 +38,14 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'drf_yasg',
 
     'rest_framework',
     'ckeditor',
     'ckeditor_uploader',
     "modeltranslation",
 
+    'api',
     'foydali_havolalar',
     'hikmatli_sozlar',
     'hujjatlar',
@@ -72,7 +74,7 @@ ROOT_URLCONF = 'config.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR / 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -122,10 +124,10 @@ LANGUAGE_CODE = 'uz'
 
 LANGUAGES = (
     ('uz', _('Uzbek')),
-    ('oz', _('Узбек')),
+    ('oz', _('Uzbekkkkkkk')),
 )
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Tashkent'
 
 USE_I18N = True
 
@@ -134,7 +136,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
-STATIC_URL = 'static/'
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
@@ -162,6 +164,7 @@ JAZZMIN_SETTINGS = {
     "site_logo": "jadid.jpg",
     "welcome_sign": "Xush Kelibsiz",
     "copyright": "Jadidlar",
+    # "search_model": ["app.model_name"],
 
     "topmenu_links": [
         {"model": "auth.User"},
@@ -179,8 +182,55 @@ JAZZMIN_SETTINGS = {
         # {"name": "Tanlovlar", "url": "tanlovlar"},
     ],
 
+    "navigation_expanded": False,
+
+    "hide_apps": ['auth'],
+
     "show_ui_builder": True,
 
     "changeform_format": "collapsible",
 
+    # "usermenu_links": [
+        # {"name": "Profile", "url": "profile"},
+        # {"name": "Logout", "url": "logout"},
+        # {"name": "Login", "url": "login"},
+        # {"name": "Signup", "url": "signup"},
+
+    # ]
+
+
+}
+
+
+JAZZMIN_UI_TWEAKS = {
+    "navbar_small_text": False,
+    "footer_small_text": False,
+    "body_small_text": False,
+    "brand_small_text": False,
+    "brand_colour": False,
+    "accent": "accent-primary",
+    "navbar": "navbar-white navbar-light",
+    "no_navbar_border": False,
+    "navbar_fixed": True,
+    "layout_boxed": False,
+    "footer_fixed": False,
+    "sidebar_fixed": False,
+    "sidebar": "sidebar-dark-primary",
+    "sidebar_nav_small_text": False,
+    "sidebar_disable_expand": False,
+    "sidebar_nav_child_indent": False,
+    "sidebar_nav_compact_style": False,
+    "sidebar_nav_legacy_style": False,
+    "sidebar_nav_flat_style": True,
+    "theme": "default",
+    "dark_mode_theme": None,
+    "button_classes": {
+        "primary": "btn-primary",
+        "secondary": "btn-secondary",
+        "info": "btn-info",
+        "warning": "btn-warning",
+        "danger": "btn-danger",
+        "success": "btn-success"
+    },
+    "actions_sticky_top": False
 }

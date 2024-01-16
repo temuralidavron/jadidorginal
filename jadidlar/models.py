@@ -13,15 +13,24 @@ class Jadid(models.Model):
     order = models.IntegerField(default=0)
     bio = RichTextField()
 
+    def __str__(self):
+        return self.fullname
+
     class Meta:
         verbose_name = 'Jadid'
         verbose_name_plural = 'Jadidlar'
+
+
+class JadidImage(models.Model):
+    jadid = models.ForeignKey(Jadid, on_delete=models.CASCADE,
+                              related_name='jadid_images')
+    image = models.ImageField()
+
+    def __str__(self):
+        return self.image.url
 
     def admin_photo(self):
         return mark_safe('<img src="{}" width="100" height="100" />'.format(self.image.url))
 
     admin_photo.short_description = 'Image'
     admin_photo.allow_tags = True
-
-    def __str__(self):
-        return self.fullname

@@ -1,12 +1,12 @@
 from django.contrib import admin
 
-from sahifalar.models import Sahifalar
+from sahifalar.models import Sahifalar, SahifalarFile
 
 
+class SahifalarFileInline(admin.TabularInline):
+    model = SahifalarFile
+
+
+@admin.register(Sahifalar)
 class SahifalarAdmin(admin.ModelAdmin):
-    list_display = ('title', 'create', 'update')
-    list_filter = ("title",)
-    search_fields = ['title',]
-
-
-admin.site.register(Sahifalar,  SahifalarAdmin)
+    inlines = [SahifalarFileInline]

@@ -5,7 +5,7 @@ from django.utils.translation import gettext_lazy as _
 
 
 def validate_audio_extension(value):
-    allowed_extensions = ['.mp3', '.wav', '.ogg']  # Qo'shimcha audio formatlarni qo'shing
+    allowed_extensions = ['.mp3', '.wav', '.ogg', '.mp4', '.avi', '.mkv' ]  # Qo'shimcha audio formatlarni qo'shing
     if not any(value.name.lower().endswith(ext) for ext in allowed_extensions):
         raise ValidationError(_('Faqat MP3, WAV yoki OGG formatlari qo\'llaniladi.'))
 
@@ -17,19 +17,20 @@ class Audiolar(models.Model):
     create = models.DateTimeField(auto_now_add=True)
     update = models.DateTimeField(auto_now=True)
 
+    def __str__(self):
+        return self.title
+
     class Meta:
         verbose_name = 'Audio'
         verbose_name_plural = 'Audiolar'
 
-    def __str__(self):
-        return self.title
 
-    def clean(self):
-        super().clean()
-        content_type = self.audio.file.content_type
-        allowed_content_types = ['audio/mpeg', 'audio/wav', 'audio/ogg']  # Qo'shimcha audio formatlarni qo'shing
-        if content_type not in allowed_content_types:
-            raise ValidationError(_('Faqat MP3, WAV yoki OGG formatlari qo\'llaniladi.'))
+class AudioFile(models.Model):
+    audiolarmodel = models.ForeignKey(Audiolar, on_delete=models.CASCADE, related_name='audio_files')
+    audio = models.FileField(upload_to='audios/', validators=[validate_audio_extension])
+
+    def __str__(self):
+        return self.audio.url
 
 
 def validate_video_extension(value):
@@ -45,18 +46,23 @@ class Videolar(models.Model):
     create = models.DateTimeField(auto_now_add=True)
     update = models.DateTimeField(auto_now=True)
 
+    def __str__(self):
+        return self.title
+
     class Meta:
         verbose_name = 'Video'
         verbose_name_plural = 'Videolar'
 
-    def __str__(self):
-        return self.title
+
+class VideoFile(models.Model):
+    videolarmodel = models.ForeignKey(Videolar, on_delete=models.CASCADE, related_name='video_files')
+    video = models.FileField(upload_to='video/', validators=[validate_audio_extension])
 
     def clean(self):
         super().clean()
         content_type = self.video.file.content_type
         allowed_content_types = ['video/mp4', 'video/x-msvideo',
-                                 'video/x-matroska']  # Qo'shimcha video formatlarni qo'shing
+                                 'video/x-matroska',]  # Qo'shimcha video formatlarni qo'shing
         if content_type not in allowed_content_types:
             raise ValidationError(_('Faqat MP4, AVI yoki MKV formatlari qo\'llaniladi.'))
 
@@ -74,19 +80,27 @@ class Rasmlar(models.Model):
     create = models.DateTimeField(auto_now_add=True)
     update = models.DateTimeField(auto_now=True)
 
+    def __str__(self):
+        return self.title
+
     class Meta:
         verbose_name = 'Rasm'
         verbose_name_plural = 'Rasmlar'
+
+
+class RasmlarImage(models.Model):
+    rasimlarmodel = models.ForeignKey(Rasmlar, on_delete=models.CASCADE,
+                                      related_name='rasimlar')
+    image = models.ImageField()
+
+    def __str__(self):
+        return self.image.url
 
     def admin_photo(self):
         return mark_safe('<img src="{}" width="100" height="100" />'.format(self.image.url))
 
     admin_photo.short_description = 'Rasm'
     admin_photo.allow_tags = True
-
-
-    def __str__(self):
-        return self.title
 
     def clean(self):
         super().clean()
@@ -101,6 +115,3 @@ class Rasmlar(models.Model):
         if not self.pk and Rasmlar.objects.count() >= 100:
             raise ValidationError(_('Faqat 100 ta rasm qo\'shishingiz mumkin.'))
         super().save(*args, **kwargs)
-
-
-

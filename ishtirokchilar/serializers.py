@@ -5,3 +5,4 @@ class IshtirokchilarSerializer(serializers.ModelSerializer):
     class Meta:
         model = Ishtirokchilar
         fields = '__all__'
+        # fields = ('fullname',)
