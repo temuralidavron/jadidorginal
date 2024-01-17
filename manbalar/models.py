@@ -91,7 +91,7 @@ class Rasmlar(models.Model):
 class RasmlarImage(models.Model):
     rasimlarmodel = models.ForeignKey(Rasmlar, on_delete=models.CASCADE,
                                       related_name='rasimlar')
-    image = models.ImageField()
+    image = models.ImageField(blank=True, null=True)
 
     def __str__(self):
         return self.image.url
@@ -104,11 +104,11 @@ class RasmlarImage(models.Model):
 
     def clean(self):
         super().clean()
-        content_type = self.image.file.content_type
-        allowed_content_types = ['image/jpeg', 'image/jpg', 'image/png',
-                                 'image/gif']  # Qo'shimcha rasm formatlarni qo'shing
-        if content_type not in allowed_content_types:
-            raise ValidationError(_('Faqat JPEG, JPG, PNG yoki GIF formatlari qo\'llaniladi.'))
+        if self.image:
+            content_type = self.image.file.content_type
+            allowed_content_types = ['image/jpeg', 'image/jpg', 'image/png', 'image/gif']
+            if content_type not in allowed_content_types:
+                raise ValidationError(_('Faqat JPEG, JPG, PNG yoki GIF formatlari qo\'llaniladi.'))
 
     def save(self, *args, **kwargs):
         # 5 ta rasm qo'shishni tekshirish

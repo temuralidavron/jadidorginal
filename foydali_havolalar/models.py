@@ -20,7 +20,7 @@ class Foydali_havolalar(models.Model):
 class Foydali_havolalarImage(models.Model):
     foydali_havola = models.ForeignKey(Foydali_havolalar, on_delete=models.CASCADE,
                                        related_name='foydali_havola_images')
-    image = models.ImageField()
+    image = models.ImageField(blank=True, null=True)
 
     def __str__(self):
         return self.image.url

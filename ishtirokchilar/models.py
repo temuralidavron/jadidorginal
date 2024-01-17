@@ -18,7 +18,7 @@ class Ishtirokchilar(models.Model):
 class IshtirokchilarImage(models.Model):
     foydali_havola = models.ForeignKey(Ishtirokchilar, on_delete=models.CASCADE,
                                        related_name='ishtirokchi_images')
-    image = models.ImageField()
+    image = models.ImageField(blank=True, null=True)
 
     def __str__(self):
         return self.image.url

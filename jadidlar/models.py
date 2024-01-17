@@ -24,7 +24,7 @@ class Jadid(models.Model):
 class JadidImage(models.Model):
     jadid = models.ForeignKey(Jadid, on_delete=models.CASCADE,
                               related_name='jadid_images')
-    image = models.ImageField()
+    image = models.ImageField(blank=True, null=True)
 
     def __str__(self):
         return self.image.url

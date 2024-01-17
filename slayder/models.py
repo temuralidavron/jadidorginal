@@ -23,7 +23,7 @@ class Slayder(models.Model):
 class SlayderImage(models.Model):
     slayder = models.ForeignKey(Slayder, on_delete=models.CASCADE,
                                 related_name='slayder_images')
-    image = models.ImageField()
+    image = models.ImageField(blank=True, null=True)
 
     def __str__(self):
         return self.image.url

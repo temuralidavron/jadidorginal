@@ -19,7 +19,7 @@ class Kanferensiyalar(models.Model):
 class KanferensiyalarImage(models.Model):
     kanferensiya = models.ForeignKey(Kanferensiyalar, on_delete=models.CASCADE,
                                        related_name='kanferensiya_images')
-    image = models.ImageField()
+    image = models.ImageField(blank=True, null=True)
 
     def __str__(self):
         return self.image.url
@@ -46,7 +46,7 @@ class Seminarlar(models.Model):
 class SeminarlarImage(models.Model):
     seminar = models.ForeignKey(Seminarlar, on_delete=models.CASCADE,
                                        related_name='seminar_images')
-    image = models.ImageField()
+    image = models.ImageField(blank=True, null=True)
 
     def __str__(self):
         return self.image.url
@@ -76,7 +76,7 @@ class Yangiliklar(models.Model):
 class YangiliklarImage(models.Model):
     yangilik = models.ForeignKey(Yangiliklar, on_delete=models.CASCADE,
                                        related_name='yangilik_images')
-    image = models.ImageField()
+    image = models.ImageField(blank=True, null=True)
 
     def __str__(self):
         return self.image.url
