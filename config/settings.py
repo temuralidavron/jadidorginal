@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-h0p&3so%)!_=1n3mi0+a$$!162ru92^xh65l2l4nz^jy^x=&-*
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']#'farxod88.pythonanywhere.com',
+ALLOWED_HOSTS = ['farxod88.pythonanywhere.com',]
 
 
 # Application definition
@@ -46,7 +46,7 @@ INSTALLED_APPS = [
     'ckeditor',
     'ckeditor_uploader',
     "modeltranslation",
-    'corsheaders',
+    # 'corsheaders',
 
     'api',
     'foydali_havolalar',
@@ -163,11 +163,11 @@ CKEDITOR_CONFIGS = {
 }
 
 
-CORS_ORIGIN_ALLOW_ALL = True
-
-CORS_ALLOW_HEADERS = list(default_headers) + [
-    'language-code',
-]
+# CORS_ORIGIN_ALLOW_ALL = True
+#
+# CORS_ALLOW_HEADERS = list(default_headers) + [
+#     'language-code',
+# ]
 
 
 JAZZMIN_SETTINGS = {
