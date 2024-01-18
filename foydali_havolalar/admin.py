@@ -23,6 +23,7 @@ class Foydali_havolalarImageInline(admin.TabularInline):
 class Foydali_havolalarAdmin(admin.ModelAdmin):
     inlines = [Foydali_havolalarImageInline]
     list_display = ('title', 'display_admin_photo',)
+    fields = ('title_uz', 'title_ru', 'link', 'logo_image',)
     list_display_links = ('title',)
     search_fields = ('title',)
     list_filter = ('title',)

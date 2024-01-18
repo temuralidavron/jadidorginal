@@ -26,7 +26,8 @@ SECRET_KEY = 'django-insecure-h0p&3so%)!_=1n3mi0+a$$!162ru92^xh65l2l4nz^jy^x=&-*
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['farxod88.pythonanywhere.com',]
+ALLOWED_HOSTS = []#'farxod88.pythonanywhere.com',
+
 
 # Application definition
 
@@ -62,6 +63,7 @@ MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.locale.LocaleMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -124,7 +126,7 @@ LANGUAGE_CODE = 'uz'
 
 LANGUAGES = (
     ('uz', _('Uzbek')),
-    ('oz', _('Uzbekkkkkkk')),
+    ('ru', _('Russian')),
 )
 
 TIME_ZONE = 'Asia/Tashkent'
@@ -234,3 +236,4 @@ JAZZMIN_UI_TWEAKS = {
     },
     "actions_sticky_top": False
 }
+

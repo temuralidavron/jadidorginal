@@ -5,4 +5,4 @@ from jadidlar.models import Jadid
 class JadidSerializer(serializers.ModelSerializer):
     class Meta:
         model = Jadid
-        fields = '__all__'
+        fields = ('fullname', 'image', 'bio', 'birthday', 'die_day', 'order',)

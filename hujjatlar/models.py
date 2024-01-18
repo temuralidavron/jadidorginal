@@ -11,6 +11,9 @@ class Asarlar(models.Model):
     create = models.DateTimeField(auto_now_add=True)
     update = models.DateTimeField(auto_now=True)
 
+    def __str__(self):
+        return self.title
+
     class Meta:
         verbose_name = 'Asar'
         verbose_name_plural = 'Asarlar'
@@ -31,6 +34,8 @@ class Maqolalar(models.Model):
     create = models.DateTimeField(auto_now_add=True, verbose_name='yaratilgan sana')
     update = models.DateTimeField(auto_now=True, verbose_name='o`zgartirilgan sana')
 
+    def __str__(self):
+        return self.title
     class Meta:
         verbose_name = 'Maqola'
         verbose_name_plural = 'Maqolalar'
@@ -50,6 +55,9 @@ class Tadqiqotlar(models.Model):
     file = models.FileField(upload_to='files/tadqiqotlar')
     create = models.DateTimeField(auto_now_add=True)
     update = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return self.title
 
     class Meta:
         verbose_name = 'Tadqiqot'
@@ -71,6 +79,9 @@ class Sherlar(models.Model):
     create = models.DateTimeField(auto_now_add=True)
     update = models.DateTimeField(auto_now=True)
 
+    def __str__(self):
+        return self.title
+
     class Meta:
         verbose_name = 'Sher'
         verbose_name_plural = 'Sherlar'
@@ -90,6 +101,9 @@ class Hotiralar(models.Model):
     file = models.FileField(upload_to='files/hotiralar', verbose_name='fayl')
     create = models.DateTimeField(auto_now_add=True, verbose_name='yaratilgan sana')
     update = models.DateTimeField(auto_now=True, verbose_name='o`zgartirilgan sana')
+
+    def __str__(self):
+        return self.title
 
     class Meta:
         verbose_name = 'Hotira'
@@ -130,6 +144,9 @@ class Arxiv_hujjatlar(models.Model):
     # arxiv = models.CharField(max_length=255)
     file = models.FileField(upload_to='files/arxiv_hujjatlar', verbose_name='fayl')
 
+    def __str__(self):
+        return self.title
+
     class Meta:
         verbose_name = 'Arxiv hujjat'
         verbose_name_plural = 'Arxiv hujjatlar'
@@ -148,6 +165,9 @@ class Dissertatsiya(models.Model):
     file = models.FileField(upload_to='files/dissertatsiya', verbose_name='fayl')
     create = models.DateTimeField(auto_now_add=True, verbose_name='yaratilgan sana')
     update = models.DateTimeField(auto_now=True, verbose_name='o`zgartirilgan sana')
+
+    def __str__(self):
+        return self.title
 
     class Meta:
         verbose_name = 'Dissertatsiya'

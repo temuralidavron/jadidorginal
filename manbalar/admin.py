@@ -23,6 +23,7 @@ class RasmlarImageInline(admin.TabularInline):
 class RasimlarAdmin(admin.ModelAdmin):
     inlines = [RasmlarImageInline]
     list_display = ('title', 'display_admin_photo',)
+    fields = ('title_uz', 'title_ru', 'image', 'file',)
     list_display_links = ('title',)
     search_fields = ('title',)
     list_filter = ('title',)
@@ -63,6 +64,7 @@ class AudioInline(admin.TabularInline):
 @admin.register(Audiolar)
 class AudiolarAdmin(admin.ModelAdmin):
     list_display = ('title', 'display_audio_player', 'display_file_link')
+    fields = ('title_uz', 'title_ru', 'audio', 'file',)
 
     def display_audio_player(self, obj):
         return format_html('<audio controls><source src="{}" type="audio/mp3"></audio>', obj.audio.url)
@@ -85,6 +87,7 @@ class VideoInline(admin.TabularInline):
 @admin.register(Videolar)
 class VideolarAdmin(admin.ModelAdmin):
     list_display = ('title', 'display_video_player')
+    fields = ('title_uz', 'title_ru', 'video', 'file',)
 
     def display_video_player(self, obj):
         return format_html('<video width="320" height="240" controls><source src="{}" type="video/mp4"></video>',

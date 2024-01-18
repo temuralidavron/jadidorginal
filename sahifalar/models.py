@@ -9,6 +9,9 @@ class Sahifalar(models.Model):
     create = models.DateTimeField(auto_now_add=True, verbose_name='Yaratilgan vaqti')
     update = models.DateTimeField(auto_now=True, verbose_name='Yangilangan vaqti')
 
+    def __str__(self):
+        return self.title
+
     class  Meta:
         verbose_name = 'Sahifa'
         verbose_name_plural = 'Sahifalar'
