@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 
 from pathlib import Path
 
+from corsheaders.defaults import default_headers
 from django.utils.translation import gettext_lazy as _
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -26,7 +27,7 @@ SECRET_KEY = 'django-insecure-h0p&3so%)!_=1n3mi0+a$$!162ru92^xh65l2l4nz^jy^x=&-*
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['farxod88.pythonanywhere.com',]
+ALLOWED_HOSTS = []#'farxod88.pythonanywhere.com',
 
 
 # Application definition
@@ -45,6 +46,7 @@ INSTALLED_APPS = [
     'ckeditor',
     'ckeditor_uploader',
     "modeltranslation",
+    'corsheaders',
 
     'api',
     'foydali_havolalar',
@@ -159,6 +161,14 @@ CKEDITOR_CONFIGS = {
         'toolbar': 'full',
     },
 }
+
+
+CORS_ORIGIN_ALLOW_ALL = True
+
+CORS_ALLOW_HEADERS = list(default_headers) + [
+    'language-code',
+]
+
 
 JAZZMIN_SETTINGS = {
     "site_title": "Foydali Havolalar",
