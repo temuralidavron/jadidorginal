@@ -9,11 +9,10 @@ class AsarlarSerializer(serializers.ModelSerializer):
 
     def to_representation(self, instance):
         data = super().to_representation(instance)
-        images = instance.foydali_havola_images.all()
-        print(images)
+        files = instance.files.all()
 
-        if images:
-            data['images'] = [{'image': img.image.url} for img in images]
+        if files:
+            data['files'] = [{'file': img.file.url} for img in files]
 
         return data
 
@@ -25,11 +24,10 @@ class MaqolalarSerializer(serializers.ModelSerializer):
 
     def to_representation(self, instance):
         data = super().to_representation(instance)
-        images = instance.foydali_havola_images.all()
-        print(images)
+        files = instance.files.all()
 
-        if images:
-            data['images'] = [{'image': img.image.url} for img in images]
+        if files:
+            data['files'] = [{'file': img.file.url} for img in files]
 
         return data
 
@@ -41,11 +39,10 @@ class TadqiqotlarSerializer(serializers.ModelSerializer):
 
     def to_representation(self, instance):
         data = super().to_representation(instance)
-        images = instance.foydali_havola_images.all()
-        print(images)
+        files = instance.files.all()
 
-        if images:
-            data['images'] = [{'image': img.image.url} for img in images]
+        if files:
+            data['files'] = [{'file': img.file.url} for img in files]
 
         return data
 
@@ -57,11 +54,10 @@ class SherlarSerializer(serializers.ModelSerializer):
 
     def to_representation(self, instance):
         data = super().to_representation(instance)
-        images = instance.foydali_havola_images.all()
-        print(images)
+        files = instance.files.all()
 
-        if images:
-            data['images'] = [{'image': img.image.url} for img in images]
+        if files:
+            data['files'] = [{'file': img.file.url} for img in files]
 
         return data
 
@@ -73,11 +69,10 @@ class HotiralarSerializer(serializers.ModelSerializer):
 
     def to_representation(self, instance):
         data = super().to_representation(instance)
-        images = instance.foydali_havola_images.all()
-        print(images)
+        files = instance.files.all()
 
-        if images:
-            data['images'] = [{'image': img.image.url} for img in images]
+        if files:
+            data['files'] = [{'file': img.file.url} for img in files]
 
         return data
 
@@ -89,11 +84,10 @@ class HikmatlarSerializer(serializers.ModelSerializer):
 
     def to_representation(self, instance):
         data = super().to_representation(instance)
-        images = instance.foydali_havola_images.all()
-        print(images)
+        files = instance.files.all()
 
-        if images:
-            data['images'] = [{'image': img.image.url} for img in images]
+        if files:
+            data['files'] = [{'file': img.file.url} for img in files]
 
         return data
 
@@ -105,11 +99,10 @@ class Arxiv_hujjatlarSerializer(serializers.ModelSerializer):
 
     def to_representation(self, instance):
         data = super().to_representation(instance)
-        images = instance.foydali_havola_images.all()
-        print(images)
+        files = instance.files.all()
 
-        if images:
-            data['images'] = [{'image': img.image.url} for img in images]
+        if files:
+            data['files'] = [{'file': img.file.url} for img in files]
 
         return data
 
@@ -121,10 +114,10 @@ class DissertatsiyaSerializer(serializers.ModelSerializer):
 
     def to_representation(self, instance):
         data = super().to_representation(instance)
-        images = instance.foydali_havola_images.all()
-        print(images)
+        files = instance.files.all()
 
-        if images:
-            data['images'] = [{'image': img.image.url} for img in images]
+        if files:
+            data['files'] = [{'file': img.file.url} for img in files]
 
         return data
+
