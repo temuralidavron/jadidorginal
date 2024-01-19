@@ -7,6 +7,8 @@ class Kanferensiyalar(models.Model):
     title = models.CharField(max_length=200, verbose_name='nomi')
     text = RichTextField()
     image = models.ImageField(upload_to='image')
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
         return self.title
@@ -35,6 +37,8 @@ class Seminarlar(models.Model):
     title = models.CharField(max_length=200, verbose_name='nomi')
     text = RichTextField()
     image = models.ImageField(upload_to='image')
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
         return self.title
@@ -64,6 +68,8 @@ class Yangiliklar(models.Model):
     title = models.CharField(max_length=200, verbose_name='nomi')
     text = RichTextField()
     image = models.ImageField(upload_to='image')
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
         return self.title

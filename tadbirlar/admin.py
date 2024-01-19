@@ -23,7 +23,7 @@ class KanferensiyalarImageInline(admin.TabularInline):
 @admin.register(Kanferensiyalar)
 class KanferensiyalarAdmin(admin.ModelAdmin):
     inlines = [KanferensiyalarImageInline]
-    list_display = ('title', 'display_admin_photo',)
+    list_display = ('title', 'display_admin_photo', 'created_at', 'updated_at',)
     fields = ('title_uz', 'title_ru', 'text_uz', 'text_ru', 'image',)
     list_display_links = ('title',)
     search_fields = ('title',)
@@ -80,7 +80,7 @@ class SeminarlarImageInline(admin.TabularInline):
 @admin.register(Seminarlar)
 class SeminarlarAdmin(admin.ModelAdmin):
     inlines = [SeminarlarImageInline]
-    list_display = ('title', 'display_admin_photo',)
+    list_display = ('title', 'display_admin_photo', 'created_at', 'updated_at',)
     fields = ('title_uz', 'title_ru', 'text_uz', 'text_ru', 'image',)
     list_display_links = ('title',)
     search_fields = ('title',)
@@ -136,7 +136,7 @@ class YangiliklarImageInline(admin.TabularInline):
 @admin.register(Yangiliklar)
 class YangiliklarAdmin(admin.ModelAdmin):
     inlines = [YangiliklarImageInline]
-    list_display = ('title', 'display_admin_photo',)
+    list_display = ('title', 'display_admin_photo', 'created_at', 'updated_at',)
     fields = ('title_uz', 'title_ru', 'text_uz', 'text_ru', 'image',)
     list_display_links = ('title',)
     search_fields = ('title',)
