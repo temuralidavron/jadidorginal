@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 
 from pathlib import Path
 
-# from corsheaders.defaults import default_headers
+from corsheaders.defaults import default_headers
 from django.utils.translation import gettext_lazy as _
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -46,7 +46,7 @@ INSTALLED_APPS = [
     'ckeditor',
     'ckeditor_uploader',
     "modeltranslation",
-    # 'corsheaders',
+    'corsheaders',
 
     'api',
     'foydali_havolalar',
@@ -163,11 +163,11 @@ CKEDITOR_CONFIGS = {
 }
 
 
-# CORS_ORIGIN_ALLOW_ALL = True
-#
-# CORS_ALLOW_HEADERS = list(default_headers) + [
-#     'language-code',
-# ]
+CORS_ORIGIN_ALLOW_ALL = True
+
+CORS_ALLOW_HEADERS = list(default_headers) + [
+    'language-code',
+]
 
 
 JAZZMIN_SETTINGS = {
