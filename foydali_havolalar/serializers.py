@@ -6,3 +6,13 @@ class Foydali_havolalarSerializer(serializers.ModelSerializer):
     class Meta:
         model = Foydali_havolalar
         fields = ('title', 'link', 'logo_image',)
+
+    def to_representation(self, instance):
+        data = super().to_representation(instance)
+        images = instance.foydali_havola_images.all()
+        print(images)
+
+        if images:
+            data['images'] = [{'image': img.image.url} for img in images]
+
+        return data

@@ -2,11 +2,20 @@ from rest_framework import serializers
 from .models import Asarlar, Maqolalar, Tadqiqotlar, Sherlar, Hotiralar, Hikmatlar, Arxiv_hujjatlar, Dissertatsiya
 
 
-
 class AsarlarSerializer(serializers.ModelSerializer):
     class Meta:
         model = Asarlar
         fields = '__all__'
+
+    def to_representation(self, instance):
+        data = super().to_representation(instance)
+        images = instance.foydali_havola_images.all()
+        print(images)
+
+        if images:
+            data['images'] = [{'image': img.image.url} for img in images]
+
+        return data
 
 
 class MaqolalarSerializer(serializers.ModelSerializer):
@@ -14,11 +23,31 @@ class MaqolalarSerializer(serializers.ModelSerializer):
         model = Maqolalar
         fields = '__all__'
 
+    def to_representation(self, instance):
+        data = super().to_representation(instance)
+        images = instance.foydali_havola_images.all()
+        print(images)
+
+        if images:
+            data['images'] = [{'image': img.image.url} for img in images]
+
+        return data
+
 
 class TadqiqotlarSerializer(serializers.ModelSerializer):
     class Meta:
         model = Tadqiqotlar
         fields = '__all__'
+
+    def to_representation(self, instance):
+        data = super().to_representation(instance)
+        images = instance.foydali_havola_images.all()
+        print(images)
+
+        if images:
+            data['images'] = [{'image': img.image.url} for img in images]
+
+        return data
 
 
 class SherlarSerializer(serializers.ModelSerializer):
@@ -26,11 +55,31 @@ class SherlarSerializer(serializers.ModelSerializer):
         model = Sherlar
         fields = '__all__'
 
+    def to_representation(self, instance):
+        data = super().to_representation(instance)
+        images = instance.foydali_havola_images.all()
+        print(images)
+
+        if images:
+            data['images'] = [{'image': img.image.url} for img in images]
+
+        return data
+
 
 class HotiralarSerializer(serializers.ModelSerializer):
     class Meta:
         model = Hotiralar
         fields = '__all__'
+
+    def to_representation(self, instance):
+        data = super().to_representation(instance)
+        images = instance.foydali_havola_images.all()
+        print(images)
+
+        if images:
+            data['images'] = [{'image': img.image.url} for img in images]
+
+        return data
 
 
 class HikmatlarSerializer(serializers.ModelSerializer):
@@ -38,14 +87,44 @@ class HikmatlarSerializer(serializers.ModelSerializer):
         model = Hikmatlar
         fields = '__all__'
 
+    def to_representation(self, instance):
+        data = super().to_representation(instance)
+        images = instance.foydali_havola_images.all()
+        print(images)
+
+        if images:
+            data['images'] = [{'image': img.image.url} for img in images]
+
+        return data
+
 
 class Arxiv_hujjatlarSerializer(serializers.ModelSerializer):
     class Meta:
         model = Arxiv_hujjatlar
         fields = '__all__'
 
+    def to_representation(self, instance):
+        data = super().to_representation(instance)
+        images = instance.foydali_havola_images.all()
+        print(images)
+
+        if images:
+            data['images'] = [{'image': img.image.url} for img in images]
+
+        return data
+
 
 class DissertatsiyaSerializer(serializers.ModelSerializer):
     class Meta:
         model = Dissertatsiya
         fields = '__all__'
+
+    def to_representation(self, instance):
+        data = super().to_representation(instance)
+        images = instance.foydali_havola_images.all()
+        print(images)
+
+        if images:
+            data['images'] = [{'image': img.image.url} for img in images]
+
+        return data

@@ -5,7 +5,7 @@ from ckeditor.fields import RichTextField
 
 
 class Foydali_havolalar(models.Model):
-    title = models.CharField(max_length=20, verbose_name='nomi')
+    title = models.CharField(max_length=100, verbose_name='nomi')
     link = RichTextField(verbose_name='link')
     logo_image = models.ImageField()
 

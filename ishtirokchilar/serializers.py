@@ -1,8 +1,18 @@
 from rest_framework import serializers
 from ishtirokchilar.models import Ishtirokchilar
 
+
 class IshtirokchilarSerializer(serializers.ModelSerializer):
     class Meta:
         model = Ishtirokchilar
         fields = '__all__'
-        # fields = ('fullname',)
+
+    def to_representation(self, instance):
+        data = super().to_representation(instance)
+        images = instance.ishtirokchi_images.all()
+        print(images)
+
+        if images:
+            data['images'] = [{'image': img.image.url} for img in images]
+
+        return data
