@@ -5,4 +5,4 @@ from hikmatli_sozlar.models import Hikmatli_sozlar
 class Hikmatli_sozlarSerializer(serializers.ModelSerializer):
     class Meta:
         model = Hikmatli_sozlar
-        fields = ('jadid', 'text',)
+        fields = '__all__'

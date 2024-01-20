@@ -5,7 +5,7 @@ from foydali_havolalar.models import Foydali_havolalar
 class Foydali_havolalarSerializer(serializers.ModelSerializer):
     class Meta:
         model = Foydali_havolalar
-        fields = ('title', 'link', 'logo_image',)
+        fields = ('id', 'title', 'link', 'logo_image',)
 
     def to_representation(self, instance):
         data = super().to_representation(instance)
