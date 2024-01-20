@@ -52,6 +52,7 @@ urlpatterns = [
     path('slayder/', include('slayder.urls')),
     path('tadbirlar/', include('tadbirlar.urls')),
     path('sahifalar/', include('sahifalar.urls')),
+    path('matbuotlar/', include('matbuotlar.urls')),
     path('api/', include('api.urls')),
 
     path('ckeditor/', include('ckeditor_uploader.urls')),

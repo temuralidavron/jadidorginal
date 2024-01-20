@@ -5,7 +5,7 @@ from jadidlar.models import Jadid
 class JadidSerializer(serializers.ModelSerializer):
     class Meta:
         model = Jadid
-        fields = ('id', 'fullname', 'image', 'bio', 'birthday', 'die_day', 'order',)
+        fields = ('fullname', 'image', 'bio', 'birthday', 'die_day', 'order','id', )
 
     def to_representation(self, instance):
         data = super().to_representation(instance)

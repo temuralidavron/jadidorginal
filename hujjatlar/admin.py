@@ -8,11 +8,10 @@ class AsarlarFileInline(admin.TabularInline):
     model = AsarlarFile
 
 
-
 @admin.register(Asarlar)
 class AsarlarAdmin(admin.ModelAdmin):
     inlines = [AsarlarFileInline]
-    fields = ('title_uz', 'title_ru', 'jadid', 'file',)
+    fields = ('title_uz', 'title_ru', 'jadid', 'image', 'file', 'type',)
 
 
 class MaqolalarFileInline(admin.TabularInline):
@@ -22,7 +21,7 @@ class MaqolalarFileInline(admin.TabularInline):
 @admin.register(Maqolalar)
 class MaqolalarAdmin(admin.ModelAdmin):
     inlines = [MaqolalarFileInline]
-    fields = ('title_uz', 'title_ru', 'jadid', 'file',)
+    fields = ('title_uz', 'title_ru', 'jadid', 'image', 'file', 'type',)
 
 
 class TadqiqotlarFileInline(admin.TabularInline):
@@ -32,7 +31,7 @@ class TadqiqotlarFileInline(admin.TabularInline):
 @admin.register(Tadqiqotlar)
 class TadqiqotlarAdmin(admin.ModelAdmin):
     inlines = [TadqiqotlarFileInline]
-    fields = ('title_uz', 'title_ru', 'jadid', 'file',)
+    fields = ('title_uz', 'title_ru', 'jadid', 'image', 'file', 'type',)
 
 
 class SherlarFileInline(admin.TabularInline):
@@ -42,7 +41,7 @@ class SherlarFileInline(admin.TabularInline):
 @admin.register(Sherlar)
 class SherlarAdmin(admin.ModelAdmin):
     inlines = [SherlarFileInline]
-    fields = ('title_uz', 'title_ru', 'jadid', 'file',)
+    fields = ('title_uz', 'title_ru', 'jadid', 'image', 'file', 'type',)
 
 
 class HotiralarFileInline(admin.TabularInline):
@@ -52,7 +51,7 @@ class HotiralarFileInline(admin.TabularInline):
 @admin.register(Hotiralar)
 class HotiralarAdmin(admin.ModelAdmin):
     inlines = [HotiralarFileInline]
-    fields = ('title_uz', 'title_ru', 'jadid', 'file',)
+    fields = ('title_uz', 'title_ru', 'jadid', 'image', 'file', 'type',)
 
 
 class HikmatlarAdmin(admin.ModelAdmin):
@@ -60,7 +59,7 @@ class HikmatlarAdmin(admin.ModelAdmin):
     # list_filter = ('text', 'create', 'update')
     search_fields = ('text',)
     list_per_page = 25
-    fields = ('title_uz', 'title_ru', 'jadid', 'file',)
+    fields = ('title_uz', 'title_ru', 'jadid', 'image', 'file',)
 
 
 class Arxiv_hujjatlarFileInline(admin.TabularInline):
@@ -70,7 +69,7 @@ class Arxiv_hujjatlarFileInline(admin.TabularInline):
 @admin.register(Arxiv_hujjatlar)
 class Arxiv_hujjatlarAdmin(admin.ModelAdmin):
     inlines = [Arxiv_hujjatlarFileInline]
-    fields = ('title_uz', 'title_ru', 'file', 'type',)
+    fields = ('title_uz', 'title_ru', 'image', 'file', 'type',)
 
 
 class DissertatsiyaFileInline(admin.TabularInline):
@@ -80,4 +79,4 @@ class DissertatsiyaFileInline(admin.TabularInline):
 @admin.register(Dissertatsiya)
 class DissertatsiyaAdmin(admin.ModelAdmin):
     inlines = [DissertatsiyaFileInline]
-    fields = ('title_uz', 'title_ru', 'file',)
+    fields = ('title_uz', 'title_ru', 'image', 'file',)

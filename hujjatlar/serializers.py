@@ -3,9 +3,14 @@ from .models import Asarlar, Maqolalar, Tadqiqotlar, Sherlar, Hotiralar, Hikmatl
 
 
 class AsarlarSerializer(serializers.ModelSerializer):
+    jadid_fullname = serializers.SerializerMethodField()
+
     class Meta:
         model = Asarlar
-        fields = '__all__'
+        fields = ('id', 'title', 'jadid_fullname', 'create', 'update', 'file', 'type',)
+
+    def get_jadid_fullname(self, obj):
+        return obj.jadid.fullname if obj.jadid else None
 
     def to_representation(self, instance):
         data = super().to_representation(instance)
@@ -18,9 +23,13 @@ class AsarlarSerializer(serializers.ModelSerializer):
 
 
 class MaqolalarSerializer(serializers.ModelSerializer):
+    jadid_fullname = serializers.SerializerMethodField()
     class Meta:
         model = Maqolalar
-        fields = '__all__'
+        fields = ('id', 'title', 'jadid_fullname', 'create', 'update', 'file', 'type',)
+
+    def get_jadid_fullname(self, obj):
+        return obj.jadid.fullname if obj.jadid else None
 
     def to_representation(self, instance):
         data = super().to_representation(instance)
@@ -33,9 +42,13 @@ class MaqolalarSerializer(serializers.ModelSerializer):
 
 
 class TadqiqotlarSerializer(serializers.ModelSerializer):
+    jadid_fullname = serializers.SerializerMethodField()
     class Meta:
         model = Tadqiqotlar
-        fields = '__all__'
+        fields = ('id', 'title', 'jadid_fullname', 'create', 'update', 'file', 'type',)
+
+    def get_jadid_fullname(self, obj):
+        return obj.jadid.fullname if obj.jadid else None
 
     def to_representation(self, instance):
         data = super().to_representation(instance)
@@ -48,9 +61,13 @@ class TadqiqotlarSerializer(serializers.ModelSerializer):
 
 
 class SherlarSerializer(serializers.ModelSerializer):
+    jadid_fullname = serializers.SerializerMethodField()
     class Meta:
         model = Sherlar
-        fields = '__all__'
+        fields = ('id', 'title', 'jadid_fullname', 'create', 'update', 'file', 'type',)
+
+    def get_jadid_fullname(self, obj):
+        return obj.jadid.fullname if obj.jadid else None
 
     def to_representation(self, instance):
         data = super().to_representation(instance)
@@ -63,9 +80,15 @@ class SherlarSerializer(serializers.ModelSerializer):
 
 
 class HotiralarSerializer(serializers.ModelSerializer):
+    jadid_fullname = serializers.SerializerMethodField()
+
+
     class Meta:
         model = Hotiralar
-        fields = '__all__'
+        fields = ('id', 'title', 'jadid_fullname', 'create', 'update', 'file', 'type',)
+
+    def get_jadid_fullname(self, obj):
+        return obj.jadid.fullname if obj.jadid else None
 
     def to_representation(self, instance):
         data = super().to_representation(instance)
@@ -120,4 +143,3 @@ class DissertatsiyaSerializer(serializers.ModelSerializer):
             data['files'] = [{'file': img.file.url} for img in files]
 
         return data
-

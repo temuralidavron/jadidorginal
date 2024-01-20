@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-h0p&3so%)!_=1n3mi0+a$$!162ru92^xh65l2l4nz^jy^x=&-*
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['farxod88.pythonanywhere.com', '*',]
+ALLOWED_HOSTS = ['farxod88.pythonanywhere.com',]
 
 
 # Application definition
@@ -59,6 +59,7 @@ INSTALLED_APPS = [
     'slayder',
     'tadbirlar',
     'tanlovlar',
+    'matbuotlar',
 ]
 
 MIDDLEWARE = [
@@ -129,6 +130,7 @@ LANGUAGE_CODE = 'uz'
 LANGUAGES = (
     ('uz', _('Uzbek')),
     ('ru', _('Russian')),
+
 )
 
 TIME_ZONE = 'Asia/Tashkent'
