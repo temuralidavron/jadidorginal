@@ -20,7 +20,7 @@ class AudiolarListView(ListAPIView):
 @api_view(['GET'])
 def audiolardetail(request, pk):
     audiolar = get_object_or_404(Audiolar, pk=pk)
-    serializer = AudiolarSerializer(audiolar)
+    serializer = AudiolarSerializer(audiolar, context={'request': request})
     return Response(serializer.data)
 
 
@@ -35,7 +35,7 @@ class VideolarListView(ListAPIView):
 @api_view(['GET'])
 def videolardetail(request, pk):
     videolar = get_object_or_404(Videolar, pk=pk)
-    serializer = VideolarSerializer(videolar)
+    serializer = VideolarSerializer(videolar, context={'request': request})
     return Response(serializer.data)
 
 
@@ -50,5 +50,5 @@ class RasmlarListView(ListAPIView):
 @api_view(['GET'])
 def rasmlardetail(request, pk):
     rasmlar = get_object_or_404(Rasmlar, pk=pk)
-    serializer = RasmlarSerializer(rasmlar)
+    serializer = RasmlarSerializer(rasmlar, context={'request': request})
     return Response(serializer.data)

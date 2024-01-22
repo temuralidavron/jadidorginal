@@ -20,5 +20,5 @@ class TanlovlarListView(ListAPIView):
 @api_view(['GET'])
 def tanlovlardetail(request, pk):
     tanlovlar = get_object_or_404(Tanlovlar, pk=pk)
-    serializer = TanlovlarSerializer(tanlovlar)
+    serializer = TanlovlarSerializer(tanlovlar, context={'request': request})
     return Response(serializer.data)

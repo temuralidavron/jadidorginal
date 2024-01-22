@@ -20,5 +20,5 @@ class IshtirokchilarListView(ListAPIView):
 @api_view(['GET'])
 def ishtirokchilardetail(request, pk):
     ishtirokchilar = get_object_or_404(Ishtirokchilar, pk=pk)
-    serializer = IshtirokchilarSerializer(ishtirokchilar)
+    serializer = IshtirokchilarSerializer(ishtirokchilar, context={'request': request})
     return Response(serializer.data)

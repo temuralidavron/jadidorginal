@@ -20,5 +20,5 @@ class SlayderListView(ListAPIView):
 @api_view(['GET'])
 def slayderdetail(request, pk):
     slayder = get_object_or_404(Slayder, pk=pk)
-    serializer = SlayderSerializer(slayder)
+    serializer = SlayderSerializer(slayder, context={'request': request})
     return Response(serializer.data)

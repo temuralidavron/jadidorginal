@@ -20,5 +20,5 @@ class SahifalarListView(ListAPIView):
 @api_view(['GET'])
 def sahifalardetail(request, pk):
     sahifalar = get_object_or_404(Sahifalar, pk=pk)
-    serializer = SahifalarSerializer(sahifalar)
+    serializer = SahifalarSerializer(sahifalar, context={'request': request})
     return Response(serializer.data)

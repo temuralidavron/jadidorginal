@@ -40,7 +40,7 @@ class AsarlarListView(ListAPIView):
 @api_view(['GET'])
 def asarlardetail(request, pk):
     asarlar = get_object_or_404(Asarlar, pk=pk)
-    serializer = AsarlarSerializer(asarlar)
+    serializer = AsarlarSerializer(asarlar, context={'request': request})
     return Response(serializer.data)
 
 
@@ -70,7 +70,7 @@ class MaqolalarListView(ListAPIView):
 @api_view(['GET'])
 def maqolalardetail(request, pk):
     maqolalar = get_object_or_404(Maqolalar, pk=pk)
-    serializer = MaqolalarSerializer(maqolalar)
+    serializer = MaqolalarSerializer(maqolalar, context={'request': request})
     return Response(serializer.data)
 
 
@@ -100,7 +100,7 @@ class TadqiqotlarListView(ListAPIView):
 @api_view(['GET'])
 def tadqiqotlardetail(request, pk):
     tadqiqotlar = get_object_or_404(Tadqiqotlar, pk=pk)
-    serializer = TadqiqotlarSerializer(tadqiqotlar)
+    serializer = TadqiqotlarSerializer(tadqiqotlar, context={'request': request})
     return Response(serializer.data)
 
 
@@ -130,7 +130,7 @@ class SherlarListView(ListAPIView):
 @api_view(['GET'])
 def sherlardetail(request, pk):
     sherlar = get_object_or_404(Sherlar, pk=pk)
-    serializer = SherlarSerializer(sherlar)
+    serializer = SherlarSerializer(sherlar, context={'request': request})
     return Response(serializer.data)
 
 
@@ -160,7 +160,7 @@ class HotiralarListView(ListAPIView):
 @api_view(['GET'])
 def hotiralardetail(request, pk):
     hotiralar = get_object_or_404(Hotiralar, pk=pk)
-    serializer = HotiralarSerializer(hotiralar)
+    serializer = HotiralarSerializer(hotiralar, context={'request': request})
     return Response(serializer.data)
 
 
@@ -190,7 +190,7 @@ class HikmatlarListView(ListAPIView):
 @api_view(['GET'])
 def hikmatlardetail(request, pk):
     hikmatlar = get_object_or_404(Hikmatlar, pk=pk)
-    serializer = HikmatlarSerializer(hikmatlar)
+    serializer = HikmatlarSerializer(hikmatlar, context={'request': request})
     return Response(serializer.data)
 
 
@@ -220,7 +220,7 @@ class Arxiv_hujjatlarListView(ListAPIView):
 @api_view(['GET'])
 def arxiv_hujjatlardetail(request, pk):
     arxiv_hujjatlar = get_object_or_404(Arxiv_hujjatlar, pk=pk)
-    serializer = Arxiv_hujjatlarSerializer(arxiv_hujjatlar)
+    serializer = Arxiv_hujjatlarSerializer(arxiv_hujjatlar, context={'request': request})
     return Response(serializer.data)
 
 
@@ -235,5 +235,5 @@ class DissertatsiyaListView(ListAPIView):
 @api_view(['GET'])
 def dissertatsiyadetail(request, pk):
     dissertatsiya = get_object_or_404(Dissertatsiya, pk=pk)
-    serializer = DissertatsiyaSerializer(dissertatsiya)
+    serializer = DissertatsiyaSerializer(dissertatsiya, context={'request': request})
     return Response(serializer.data)

@@ -20,7 +20,7 @@ class Matbuot_categoriyaListView(ListAPIView):
 @api_view(['GET'])
 def matbuot_categoriyadetail(request, pk):
     matbuotlar = get_object_or_404(Matbuot_categoriya, pk=pk)
-    serializer = Matbuot_categoriyaSerializer(matbuotlar)
+    serializer = Matbuot_categoriyaSerializer(matbuotlar, context={'request': request})
     return Response(serializer.data)
 
 
@@ -35,5 +35,5 @@ class MatbuotlarListView(ListAPIView):
 @api_view(['GET'])
 def matbuotlardetail(request, pk):
     matbuotlar = get_object_or_404(Matbuotlar, pk=pk)
-    serializer = MatbuotlarSerializer(matbuotlar)
+    serializer = MatbuotlarSerializer(matbuotlar, context={'request': request})
     return Response(serializer.data)

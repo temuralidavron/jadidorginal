@@ -20,5 +20,5 @@ class Hikmatli_sozlarListView(ListAPIView):
 @api_view(['GET'])
 def hikmatli_sozlardetail(request, pk):
     hikmatli_sozlar = get_object_or_404(Hikmatli_sozlar, pk=pk)
-    serializer = Hikmatli_sozlarSerializer(hikmatli_sozlar)
+    serializer = Hikmatli_sozlarSerializer(hikmatli_sozlar, context={'request': request})
     return Response(serializer.data)

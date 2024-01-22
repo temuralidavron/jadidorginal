@@ -20,5 +20,5 @@ class Foydali_havolalarListView(ListAPIView):
 @api_view(['GET'])
 def foydali_havolalardetail(request, pk):
     foydali_havolalar = get_object_or_404(Foydali_havolalar, pk=pk)
-    serializer = Foydali_havolalarSerializer(foydali_havolalar)
+    serializer = Foydali_havolalarSerializer(foydali_havolalar, context={'request': request})
     return Response(serializer.data)

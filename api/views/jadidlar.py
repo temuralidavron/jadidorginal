@@ -14,13 +14,10 @@ class JadidlarListView(ListAPIView):
     pagination_class = ResultsSetPagination
 
     def get_queryset(self):
-        print(self.request.content_type)
         return Jadid.objects.all()
-
-
 
 @api_view(['GET'])
 def jadidlardetail(request, pk):
     jadidlar = get_object_or_404(Jadid, pk=pk)
-    serializer = JadidSerializer(jadidlar)
+    serializer = JadidSerializer(jadidlar, context={'request': request})
     return Response(serializer.data)

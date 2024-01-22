@@ -20,7 +20,7 @@ class KanferensiyalarListView(ListAPIView):
 @api_view(['GET'])
 def kanferensiyalardetail(request, pk):
     kanferensiyalar = get_object_or_404(Kanferensiyalar, pk=pk)
-    serializer = KanferensiyalarSerializer(kanferensiyalar)
+    serializer = KanferensiyalarSerializer(kanferensiyalar, context={'request': request})
     return Response(serializer.data)
 
 
@@ -35,7 +35,7 @@ class SeminarlarListView(ListAPIView):
 @api_view(['GET'])
 def seminarlardetail(request, pk):
     seminarlar = get_object_or_404(Seminarlar, pk=pk)
-    serializer = SeminarlarSerializer(seminarlar)
+    serializer = SeminarlarSerializer(seminarlar, context={'request': request})
     return Response(serializer.data)
 
 
@@ -50,5 +50,5 @@ class YangiliklarListView(ListAPIView):
 @api_view(['GET'])
 def yangiliklardetail(request, pk):
     yangiliklar = get_object_or_404(Yangiliklar, pk=pk)
-    serializer = YangiliklarSerializer(yangiliklar)
+    serializer = YangiliklarSerializer(yangiliklar, context={'request': request})
     return Response(serializer.data)
