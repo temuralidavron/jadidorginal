@@ -12,8 +12,8 @@ class VideolarSerializer(serializers.ModelSerializer):
         videos = instance.video_files.all()
 
         if videos:
-            data['videos'] = [{'video': img.video.url} for img in videos]
-
+            request = self.context.get('request')
+            data['videos'] = [{'video': request.build_absolute_uri(img.video.url)} for img in videos]
         return data
 
 
@@ -25,10 +25,10 @@ class RasmlarSerializer(serializers.ModelSerializer):
     def to_representation(self, instance):
         data = super().to_representation(instance)
         images = instance.rasimlar.all()
-        print(images)
 
         if images:
-            data['images'] = [{'image': img.image.url} for img in images]
+            request = self.context.get('request')
+            data['images'] = [{'image': request.build_absolute_uri(img.image.url)} for img in images]
 
         return data
 
@@ -44,6 +44,7 @@ class AudiolarSerializer(serializers.ModelSerializer):
         print(audios)
 
         if audios:
-            data['audios'] = [{'audio': img.audio.url} for img in audios]
+            request = self.context.get('request')
+            data['audios'] = [{'audio': request.build_absolute_uri(img.audio.url)} for img in audios]
 
         return data

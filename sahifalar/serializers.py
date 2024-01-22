@@ -12,6 +12,7 @@ class SahifalarSerializer(serializers.ModelSerializer):
         files = instance.files.all()
 
         if files:
-            data['files'] = [{'file': img.file.url} for img in files]
+            request = self.context.get('request')
+            data['files'] = [{'file': request.build_absolute_uri(img.file.url)} for img in files]
 
         return data

@@ -17,6 +17,10 @@ from api.views.tadbirlar import KanferensiyalarListView, kanferensiyalardetail, 
     YangiliklarListView, yangiliklardetail
 from api.views.tanlovlar import TanlovlarListView, tanlovlardetail
 
+
+from django.conf import settings
+from django.conf.urls.static import static
+
 urlpatterns = [
     path('foydali_havolalar/', Foydali_havolalarListView.as_view(), name='foydali_havolalar-list'),
     path('foydali_havolalar/<int:pk>/', foydali_havolalardetail, name='foydali_havolalar-detail'),
@@ -88,3 +92,5 @@ urlpatterns = [
     path('matbuotlar/<int:pk>/', matbuotlardetail, name='matbuotlar-detail'),
 
 ]
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

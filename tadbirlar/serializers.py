@@ -13,7 +13,8 @@ class KanferensiyalarSerializer(serializers.ModelSerializer):
         print(images)
 
         if images:
-            data['images'] = [{'image': img.image.url} for img in images]
+            request = self.context.get('request')
+            data['images'] = [{'image': request.build_absolute_uri(img.image.url)} for img in images]
 
         return data
 
