@@ -10,7 +10,7 @@ class Slayder(models.Model):
     image = models.ImageField(upload_to='slayder')
     create = models.DateTimeField(auto_now_add=True)
     update = models.DateTimeField(auto_now=True)
-    citations = models.IntegerField(default=0)
+    # citations = models.IntegerField(default=0)
 
     def __str__(self):
         return self.title
