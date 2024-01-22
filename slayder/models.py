@@ -5,7 +5,7 @@ from django.utils.safestring import mark_safe
 
 class Slayder(models.Model):
     title = models.CharField(max_length=255, verbose_name='nomi')
-    text = RichTextField(verbose_name='Tavsiv')
+    text = models.TextField(verbose_name='Tavsiv')
     citations = models.CharField(max_length=255, verbose_name='Havolalar')
     image = models.ImageField(upload_to='slayder')
     create = models.DateTimeField(auto_now_add=True)
