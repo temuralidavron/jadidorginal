@@ -10,13 +10,31 @@ from hujjatlar.serializers import AsarlarSerializer, MaqolalarSerializer, Tadqiq
 
 from rest_framework.decorators import api_view
 
+from drf_yasg.utils import swagger_auto_schema
+from drf_yasg import openapi
+
 
 class AsarlarListView(ListAPIView):
     serializer_class = AsarlarSerializer
     pagination_class = ResultsSetPagination
 
+    @swagger_auto_schema(
+        manual_parameters=[
+            openapi.Parameter('type', openapi.IN_QUERY, description='Filter by type', type=openapi.TYPE_STRING),
+        ]
+    )
+    def get(self, request, *args, **kwargs):
+        return super().get(request, *args, **kwargs)
+
     def get_queryset(self):
-        return Asarlar.objects.all()
+        # QueryParam "type" orqali filter qilinadi
+        type_param = self.request.query_params.get('type', None)
+        if type_param:
+            # Agar "type" berilgan bo'lsa, shu "type" ga mos keladigan obyektlarni tanlash
+            return Asarlar.objects.filter(type=type_param)
+        else:
+            # Aks holda barcha obyektlarni qaytarish
+            return Asarlar.objects.all()
 
 
 @api_view(['GET'])
@@ -30,8 +48,23 @@ class MaqolalarListView(ListAPIView):
     serializer_class = MaqolalarSerializer
     pagination_class = ResultsSetPagination
 
+    @swagger_auto_schema(
+        manual_parameters=[
+            openapi.Parameter('type', openapi.IN_QUERY, description='Filter by type', type=openapi.TYPE_STRING),
+        ]
+    )
+    def get(self, request, *args, **kwargs):
+        return super().get(request, *args, **kwargs)
+
     def get_queryset(self):
-        return Maqolalar.objects.all()
+        # QueryParam "type" orqali filter qilinadi
+        type_param = self.request.query_params.get('type', None)
+        if type_param:
+            # Agar "type" berilgan bo'lsa, shu "type" ga mos keladigan obyektlarni tanlash
+            return Maqolalar.objects.filter(type=type_param)
+        else:
+            # Aks holda barcha obyektlarni qaytarish
+            return Maqolalar.objects.all()
 
 
 @api_view(['GET'])
@@ -45,8 +78,23 @@ class TadqiqotlarListView(ListAPIView):
     serializer_class = TadqiqotlarSerializer
     pagination_class = ResultsSetPagination
 
+    @swagger_auto_schema(
+        manual_parameters=[
+            openapi.Parameter('type', openapi.IN_QUERY, description='Filter by type', type=openapi.TYPE_STRING),
+        ]
+    )
+    def get(self, request, *args, **kwargs):
+        return super().get(request, *args, **kwargs)
+
     def get_queryset(self):
-        return Tadqiqotlar.objects.all()
+        # QueryParam "type" orqali filter qilinadi
+        type_param = self.request.query_params.get('type', None)
+        if type_param:
+            # Agar "type" berilgan bo'lsa, shu "type" ga mos keladigan obyektlarni tanlash
+            return Tadqiqotlar.objects.filter(type=type_param)
+        else:
+            # Aks holda barcha obyektlarni qaytarish
+            return Tadqiqotlar.objects.all()
 
 
 @api_view(['GET'])
@@ -60,8 +108,23 @@ class SherlarListView(ListAPIView):
     serializer_class = SherlarSerializer
     pagination_class = ResultsSetPagination
 
+    @swagger_auto_schema(
+        manual_parameters=[
+            openapi.Parameter('type', openapi.IN_QUERY, description='Filter by type', type=openapi.TYPE_STRING),
+        ]
+    )
+    def get(self, request, *args, **kwargs):
+        return super().get(request, *args, **kwargs)
+
     def get_queryset(self):
-        return Sherlar.objects.all()
+        # QueryParam "type" orqali filter qilinadi
+        type_param = self.request.query_params.get('type', None)
+        if type_param:
+            # Agar "type" berilgan bo'lsa, shu "type" ga mos keladigan obyektlarni tanlash
+            return Sherlar.objects.filter(type=type_param)
+        else:
+            # Aks holda barcha obyektlarni qaytarish
+            return Sherlar.objects.all()
 
 
 @api_view(['GET'])
@@ -75,8 +138,23 @@ class HotiralarListView(ListAPIView):
     serializer_class = HotiralarSerializer
     pagination_class = ResultsSetPagination
 
+    @swagger_auto_schema(
+        manual_parameters=[
+            openapi.Parameter('type', openapi.IN_QUERY, description='Filter by type', type=openapi.TYPE_STRING),
+        ]
+    )
+    def get(self, request, *args, **kwargs):
+        return super().get(request, *args, **kwargs)
+
     def get_queryset(self):
-        return Hotiralar.objects.all()
+        # QueryParam "type" orqali filter qilinadi
+        type_param = self.request.query_params.get('type', None)
+        if type_param:
+            # Agar "type" berilgan bo'lsa, shu "type" ga mos keladigan obyektlarni tanlash
+            return Hotiralar.objects.filter(type=type_param)
+        else:
+            # Aks holda barcha obyektlarni qaytarish
+            return Hotiralar.objects.all()
 
 
 @api_view(['GET'])
@@ -90,8 +168,23 @@ class HikmatlarListView(ListAPIView):
     serializer_class = HikmatlarSerializer
     pagination_class = ResultsSetPagination
 
+    @swagger_auto_schema(
+        manual_parameters=[
+            openapi.Parameter('type', openapi.IN_QUERY, description='Filter by type', type=openapi.TYPE_STRING),
+        ]
+    )
+    def get(self, request, *args, **kwargs):
+        return super().get(request, *args, **kwargs)
+
     def get_queryset(self):
-        return Hikmatlar.objects.all()
+        # QueryParam "type" orqali filter qilinadi
+        type_param = self.request.query_params.get('type', None)
+        if type_param:
+            # Agar "type" berilgan bo'lsa, shu "type" ga mos keladigan obyektlarni tanlash
+            return Hikmatlar.objects.filter(type=type_param)
+        else:
+            # Aks holda barcha obyektlarni qaytarish
+            return Hikmatlar.objects.all()
 
 
 @api_view(['GET'])
@@ -105,8 +198,23 @@ class Arxiv_hujjatlarListView(ListAPIView):
     serializer_class = Arxiv_hujjatlarSerializer
     pagination_class = ResultsSetPagination
 
+    @swagger_auto_schema(
+        manual_parameters=[
+            openapi.Parameter('type', openapi.IN_QUERY, description='Filter by type', type=openapi.TYPE_STRING),
+        ]
+    )
+    def get(self, request, *args, **kwargs):
+        return super().get(request, *args, **kwargs)
+
     def get_queryset(self):
-        return Arxiv_hujjatlar.objects.all()
+        # QueryParam "type" orqali filter qilinadi
+        type_param = self.request.query_params.get('type', None)
+        if type_param:
+            # Agar "type" berilgan bo'lsa, shu "type" ga mos keladigan obyektlarni tanlash
+            return Arxiv_hujjatlar.objects.filter(type=type_param)
+        else:
+            # Aks holda barcha obyektlarni qaytarish
+            return Arxiv_hujjatlar.objects.all()
 
 
 @api_view(['GET'])

@@ -7,7 +7,7 @@ class AsarlarSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Asarlar
-        fields = ('id', 'title', 'jadid_fullname', 'create', 'update', 'file', 'type',)
+        fields = ('id', 'title', 'jadid_fullname', 'create', 'update', 'image', 'file', 'type',)
 
     def get_jadid_fullname(self, obj):
         return obj.jadid.fullname if obj.jadid else None
@@ -26,7 +26,7 @@ class MaqolalarSerializer(serializers.ModelSerializer):
     jadid_fullname = serializers.SerializerMethodField()
     class Meta:
         model = Maqolalar
-        fields = ('id', 'title', 'jadid_fullname', 'create', 'update', 'file', 'type',)
+        fields = ('id', 'title', 'jadid_fullname', 'create', 'update', 'image', 'file', 'type',)
 
     def get_jadid_fullname(self, obj):
         return obj.jadid.fullname if obj.jadid else None
@@ -45,7 +45,7 @@ class TadqiqotlarSerializer(serializers.ModelSerializer):
     jadid_fullname = serializers.SerializerMethodField()
     class Meta:
         model = Tadqiqotlar
-        fields = ('id', 'title', 'jadid_fullname', 'create', 'update', 'file', 'type',)
+        fields = ('id', 'title', 'jadid_fullname', 'create', 'update', 'image', 'file', 'type',)
 
     def get_jadid_fullname(self, obj):
         return obj.jadid.fullname if obj.jadid else None
@@ -64,7 +64,7 @@ class SherlarSerializer(serializers.ModelSerializer):
     jadid_fullname = serializers.SerializerMethodField()
     class Meta:
         model = Sherlar
-        fields = ('id', 'title', 'jadid_fullname', 'create', 'update', 'file', 'type',)
+        fields = ('id', 'title', 'jadid_fullname', 'create', 'update', 'image', 'file', 'type',)
 
     def get_jadid_fullname(self, obj):
         return obj.jadid.fullname if obj.jadid else None
@@ -85,7 +85,7 @@ class HotiralarSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Hotiralar
-        fields = ('id', 'title', 'jadid_fullname', 'create', 'update', 'file', 'type',)
+        fields = ('id', 'title', 'jadid_fullname', 'create', 'update', 'image', 'file', 'type',)
 
     def get_jadid_fullname(self, obj):
         return obj.jadid.fullname if obj.jadid else None

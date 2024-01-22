@@ -76,7 +76,7 @@ def validate_image_extension(value):
 class Rasmlar(models.Model):
     title = models.CharField(max_length=100, verbose_name='nomi')
     image = models.ImageField(upload_to='images/', validators=[validate_image_extension])
-    file = models.FileField(upload_to='files/')
+    # file = models.FileField(upload_to='files/')
     create = models.DateTimeField(auto_now_add=True)
     update = models.DateTimeField(auto_now=True)
 

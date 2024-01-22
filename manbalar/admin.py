@@ -23,7 +23,7 @@ class RasmlarImageInline(admin.TabularInline):
 class RasimlarAdmin(admin.ModelAdmin):
     inlines = [RasmlarImageInline]
     list_display = ('title', 'display_admin_photo',)
-    fields = ('title_uz', 'title_ru', 'image', 'file',)
+    fields = ('title_uz', 'title_ru', 'image',)
     list_display_links = ('title',)
     search_fields = ('title',)
     list_filter = ('title',)
