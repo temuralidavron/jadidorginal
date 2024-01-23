@@ -7,9 +7,12 @@ from jadidlar.models import Jadid
 from jadidlar.serializers import JadidSerializer
 
 from rest_framework.decorators import api_view
+from rest_framework import filters
 
 
 class JadidlarListView(ListAPIView):
+    search_fields = ['fullname', 'bio']
+    filter_backends = (filters.SearchFilter,)
     serializer_class = JadidSerializer
     pagination_class = ResultsSetPagination
 

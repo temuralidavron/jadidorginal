@@ -7,9 +7,12 @@ from hikmatli_sozlar.models import Hikmatli_sozlar
 from hikmatli_sozlar.serializers import Hikmatli_sozlarSerializer
 
 from rest_framework.decorators import api_view
+from rest_framework import filters
 
 
 class Hikmatli_sozlarListView(ListAPIView):
+    search_fields = ['text']
+    filter_backends = (filters.SearchFilter,)
     serializer_class = Hikmatli_sozlarSerializer
     pagination_class = ResultsSetPagination
 

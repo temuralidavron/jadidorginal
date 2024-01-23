@@ -7,9 +7,12 @@ from tadbirlar.models import Kanferensiyalar, Seminarlar, Yangiliklar
 from tadbirlar.serializers import KanferensiyalarSerializer, SeminarlarSerializer, YangiliklarSerializer
 
 from rest_framework.decorators import api_view
+from rest_framework import filters
 
 
 class KanferensiyalarListView(ListAPIView):
+    search_fields = ['title', 'text']
+    filter_backends = (filters.SearchFilter,)
     serializer_class = KanferensiyalarSerializer
     pagination_class = ResultsSetPagination
 
@@ -25,6 +28,8 @@ def kanferensiyalardetail(request, pk):
 
 
 class SeminarlarListView(ListAPIView):
+    search_fields = ['title', 'text']
+    filter_backends = (filters.SearchFilter,)
     serializer_class = SeminarlarSerializer
     pagination_class = ResultsSetPagination
 
@@ -40,6 +45,8 @@ def seminarlardetail(request, pk):
 
 
 class YangiliklarListView(ListAPIView):
+    search_fields = ['title', 'text']
+    filter_backends = (filters.SearchFilter,)
     serializer_class = YangiliklarSerializer
     pagination_class = ResultsSetPagination
 

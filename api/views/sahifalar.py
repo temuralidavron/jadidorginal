@@ -7,9 +7,12 @@ from sahifalar.models import Sahifalar
 from sahifalar.serializers import SahifalarSerializer
 
 from rest_framework.decorators import api_view
+from rest_framework import filters
 
 
 class SahifalarListView(ListAPIView):
+    search_fields = ['title', 'text']
+    filter_backends = (filters.SearchFilter,)
     serializer_class = SahifalarSerializer
     pagination_class = ResultsSetPagination
 

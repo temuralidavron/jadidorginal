@@ -7,9 +7,12 @@ from tanlovlar.models import Tanlovlar
 from tanlovlar.serializers import TanlovlarSerializer
 
 from rest_framework.decorators import api_view
+from rest_framework import filters
 
 
 class TanlovlarListView(ListAPIView):
+    search_fields = ['kalit', 'qiymat']
+    filter_backends = (filters.SearchFilter,)
     serializer_class = TanlovlarSerializer
     pagination_class = ResultsSetPagination
 

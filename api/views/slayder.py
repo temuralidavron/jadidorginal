@@ -7,9 +7,12 @@ from slayder.models import Slayder
 from slayder.serializers import SlayderSerializer
 
 from rest_framework.decorators import api_view
+from rest_framework import filters
 
 
 class SlayderListView(ListAPIView):
+    search_fields = ['title', 'text']
+    filter_backends = (filters.SearchFilter,)
     serializer_class = SlayderSerializer
     pagination_class = ResultsSetPagination
 

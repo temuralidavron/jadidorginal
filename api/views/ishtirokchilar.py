@@ -7,9 +7,12 @@ from ishtirokchilar.models import Ishtirokchilar
 from ishtirokchilar.serializers import IshtirokchilarSerializer
 
 from rest_framework.decorators import api_view
+from rest_framework import filters
 
 
 class IshtirokchilarListView(ListAPIView):
+    search_fields = ['fullname']
+    filter_backends = (filters.SearchFilter,)
     serializer_class = IshtirokchilarSerializer
     pagination_class = ResultsSetPagination
 

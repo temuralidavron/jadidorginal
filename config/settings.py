@@ -210,7 +210,7 @@ JAZZMIN_SETTINGS = {
         # {"name": "Login", "url": "login"},
         # {"name": "Signup", "url": "signup"},
 
-    # ]
+#     ]
 
 
 }

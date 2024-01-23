@@ -7,9 +7,12 @@ from foydali_havolalar.models import Foydali_havolalar
 from foydali_havolalar.serializers import Foydali_havolalarSerializer
 
 from rest_framework.decorators import api_view
+from rest_framework import filters
 
 
 class Foydali_havolalarListView(ListAPIView):
+    search_fields = ['title']
+    filter_backends = (filters.SearchFilter,)
     serializer_class = Foydali_havolalarSerializer
     pagination_class = ResultsSetPagination
 

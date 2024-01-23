@@ -7,9 +7,12 @@ from manbalar.models import Audiolar, Videolar, Rasmlar
 from manbalar.serializers import AudiolarSerializer, VideolarSerializer, RasmlarSerializer
 
 from rest_framework.decorators import api_view
+from rest_framework import filters
 
 
 class AudiolarListView(ListAPIView):
+    search_fields = ['title']
+    filter_backends = (filters.SearchFilter,)
     serializer_class = AudiolarSerializer
     pagination_class = ResultsSetPagination
 
@@ -25,6 +28,8 @@ def audiolardetail(request, pk):
 
 
 class VideolarListView(ListAPIView):
+    search_fields = ['title']
+    filter_backends = (filters.SearchFilter,)
     serializer_class = VideolarSerializer
     pagination_class = ResultsSetPagination
 
@@ -40,6 +45,8 @@ def videolardetail(request, pk):
 
 
 class RasmlarListView(ListAPIView):
+    search_fields = ['title']
+    filter_backends = (filters.SearchFilter,)
     serializer_class = RasmlarSerializer
     pagination_class = ResultsSetPagination
 

@@ -12,9 +12,12 @@ from rest_framework.decorators import api_view
 
 from drf_yasg.utils import swagger_auto_schema
 from drf_yasg import openapi
+from rest_framework import filters
 
 
 class AsarlarListView(ListAPIView):
+    search_fields = ['title']
+    filter_backends = (filters.SearchFilter,)
     serializer_class = AsarlarSerializer
     pagination_class = ResultsSetPagination
 
@@ -45,6 +48,8 @@ def asarlardetail(request, pk):
 
 
 class MaqolalarListView(ListAPIView):
+    search_fields = ['title']
+    filter_backends = (filters.SearchFilter,)
     serializer_class = MaqolalarSerializer
     pagination_class = ResultsSetPagination
 
@@ -75,6 +80,8 @@ def maqolalardetail(request, pk):
 
 
 class TadqiqotlarListView(ListAPIView):
+    search_fields = ['title']
+    filter_backends = (filters.SearchFilter,)
     serializer_class = TadqiqotlarSerializer
     pagination_class = ResultsSetPagination
 
@@ -105,6 +112,8 @@ def tadqiqotlardetail(request, pk):
 
 
 class SherlarListView(ListAPIView):
+    search_fields = ['title']
+    filter_backends = (filters.SearchFilter,)
     serializer_class = SherlarSerializer
     pagination_class = ResultsSetPagination
 
@@ -135,6 +144,8 @@ def sherlardetail(request, pk):
 
 
 class HotiralarListView(ListAPIView):
+    search_fields = ['title']
+    filter_backends = (filters.SearchFilter,)
     serializer_class = HotiralarSerializer
     pagination_class = ResultsSetPagination
 
@@ -165,6 +176,8 @@ def hotiralardetail(request, pk):
 
 
 class HikmatlarListView(ListAPIView):
+    search_fields = ['text']
+    filter_backends = (filters.SearchFilter,)
     serializer_class = HikmatlarSerializer
     pagination_class = ResultsSetPagination
 
@@ -195,6 +208,8 @@ def hikmatlardetail(request, pk):
 
 
 class Arxiv_hujjatlarListView(ListAPIView):
+    search_fields = ['title']
+    filter_backends = (filters.SearchFilter,)
     serializer_class = Arxiv_hujjatlarSerializer
     pagination_class = ResultsSetPagination
 
@@ -225,6 +240,8 @@ def arxiv_hujjatlardetail(request, pk):
 
 
 class DissertatsiyaListView(ListAPIView):
+    search_fields = ['title']
+    filter_backends = (filters.SearchFilter,)
     serializer_class = DissertatsiyaSerializer
     pagination_class = ResultsSetPagination
 

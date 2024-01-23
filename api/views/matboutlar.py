@@ -7,9 +7,12 @@ from matbuotlar.models import Matbuot_categoriya, Matbuotlar
 from matbuotlar.serializers import Matbuot_categoriyaSerializer, MatbuotlarSerializer
 
 from rest_framework.decorators import api_view
+from rest_framework import filters
 
 
 class Matbuot_categoriyaListView(ListAPIView):
+    search_fields = ['title']
+    filter_backends = (filters.SearchFilter,)
     serializer_class = Matbuot_categoriyaSerializer
     pagination_class = ResultsSetPagination
 
@@ -25,6 +28,8 @@ def matbuot_categoriyadetail(request, pk):
 
 
 class MatbuotlarListView(ListAPIView):
+    search_fields = ['title']
+    filter_backends = (filters.SearchFilter,)
     serializer_class = MatbuotlarSerializer
     pagination_class = ResultsSetPagination
 
