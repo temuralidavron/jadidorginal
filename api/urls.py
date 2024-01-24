@@ -1,6 +1,7 @@
 from django.urls import path
 
 from api.views.foydali_havolalar import Foydali_havolalarListView, foydali_havolalardetail
+from api.views.full_text_search import full_text_search
 from api.views.hikmatli_sozlar import Hikmatli_sozlarListView, hikmatli_sozlardetail
 from api.views.hujjatlar import AsarlarListView, asarlardetail, MaqolalarListView, maqolalardetail, TadqiqotlarListView, \
     tadqiqotlardetail, SherlarListView, sherlardetail, HotiralarListView, hotiralardetail, HikmatlarListView, \
@@ -90,6 +91,9 @@ urlpatterns = [
 
     path('matbuotlar/', MatbuotlarListView.as_view(), name='matbuotlar-list'),
     path('matbuotlar/<int:pk>/', matbuotlardetail, name='matbuotlar-detail'),
+
+
+    path('search/', full_text_search, name='search'),
 
 ]
 if settings.DEBUG:
