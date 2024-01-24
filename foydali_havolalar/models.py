@@ -1,13 +1,13 @@
 from django.db import models
 from django.utils.safestring import mark_safe
 
-from ckeditor.fields import RichTextField
+# from ckeditor.fields import RichTextField
 
 
 class Foydali_havolalar(models.Model):
     title = models.CharField(max_length=100, verbose_name='nomi')
-    link = RichTextField(verbose_name='link')
-    logo_image = models.ImageField()
+    link = models.URLField(verbose_name='link')
+    logo_image = models.ImageField(blank=True, null=True, upload_to='logo_images/')
 
     def __str__(self):
         return self.title
@@ -20,7 +20,7 @@ class Foydali_havolalar(models.Model):
 class Foydali_havolalarImage(models.Model):
     foydali_havola = models.ForeignKey(Foydali_havolalar, on_delete=models.CASCADE,
                                        related_name='foydali_havola_images')
-    image = models.ImageField(blank=True, null=True)
+    image = models.ImageField(blank=True, null=True, upload_to='foydali_havola_images/')
 
     def __str__(self):
         return self.image.url

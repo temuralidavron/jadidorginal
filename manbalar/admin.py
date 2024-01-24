@@ -63,8 +63,8 @@ class AudioInline(admin.TabularInline):
 
 @admin.register(Audiolar)
 class AudiolarAdmin(admin.ModelAdmin):
-    list_display = ('title', 'display_audio_player', 'display_file_link')
-    fields = ('title_uz', 'title_ru', 'audio', 'file',)
+    list_display = ('title', 'display_audio_player',)# 'display_file_link'
+    fields = ('title_uz', 'title_ru', 'audio', 'image',)
 
     def display_audio_player(self, obj):
         return format_html('<audio controls><source src="{}" type="audio/mp3"></audio>', obj.audio.url)
@@ -86,8 +86,8 @@ class VideoInline(admin.TabularInline):
 
 @admin.register(Videolar)
 class VideolarAdmin(admin.ModelAdmin):
-    list_display = ('title', 'display_video_player')
-    fields = ('title_uz', 'title_ru', 'video', 'file',)
+    list_display = ('title', )#'display_video_player'
+    fields = ('title_uz', 'title_ru', 'video', 'file', 'link',)
 
     def display_video_player(self, obj):
         return format_html('<video width="320" height="240" controls><source src="{}" type="video/mp4"></video>',

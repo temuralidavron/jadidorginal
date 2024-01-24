@@ -18,11 +18,10 @@ class Foydali_havolalarImageInline(admin.TabularInline):
     extra = 0
 
 
-
 @admin.register(Foydali_havolalar)
 class Foydali_havolalarAdmin(admin.ModelAdmin):
     inlines = [Foydali_havolalarImageInline]
-    list_display = ('title', 'display_admin_photo',)
+    list_display = ('title', 'display_admin_photo', 'display_images',)
     fields = ('title_uz', 'title_ru', 'link', 'logo_image',)
     list_display_links = ('title',)
     search_fields = ('title',)
@@ -35,24 +34,17 @@ class Foydali_havolalarAdmin(admin.ModelAdmin):
     readonly_fields = ('display_admin_photo', 'display_images', )
 
     def display_admin_photo(self, obj):
-        return format_html('<img src="{0}" width="100" height="100"  />'.format(obj.logo_image.url))
+        if obj.logo_image:
+            return format_html('<img src="{0}" width="100" height="100" />'.format(obj.logo_image.url))
+        return ''
 
     display_admin_photo.short_description = 'Rasm'
     display_admin_photo.allow_tags = True
 
     def display_images(self, obj):
         images = obj.foydali_havola_images.all()  # Adjust the related name accordingly
-        return format_html(''.join('<img src="{0}" width="100" height="100" style="margin-right: 10px;"  />'.format(img.image.url) for img in images))
+        return format_html(''.join('<img src="{0}" width="100" height="100" style="margin-right: 10px;" />'.format(img.image.url) for img in images))
 
-    display_images.short_description = 'Images'
+    display_images.short_description = 'Rasmlar'
     display_images.allow_tags = True
 
-    def logo_image(self, obj):
-
-        return format_html('<img src="{0}" width="100" height="100" />'.format(obj.logo_image.url))
-
-
-
-
-    logo_image.short_description = 'Rasm'
-    logo_image.allow_tags = True

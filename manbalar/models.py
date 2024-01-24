@@ -12,8 +12,8 @@ def validate_audio_extension(value):
 
 class Audiolar(models.Model):
     title = models.CharField(max_length=100, verbose_name='nomi')
+    image = models.ImageField(upload_to='images/', blank=True, null=True)
     audio = models.FileField(upload_to='audios/', validators=[validate_audio_extension])
-    file = models.FileField(upload_to='files/')
     create = models.DateTimeField(auto_now_add=True)
     update = models.DateTimeField(auto_now=True)
 
@@ -41,7 +41,8 @@ def validate_video_extension(value):
 
 class Videolar(models.Model):
     title = models.CharField(max_length=100, verbose_name='nomi')
-    video = models.FileField(upload_to='videos/', validators=[validate_video_extension])
+    video = models.FileField(upload_to='videos/', validators=[validate_video_extension], blank=True, null=True)
+    link = models.URLField(max_length=200, verbose_name='link', blank=True, null=True)
     file = models.FileField(upload_to='files/')
     create = models.DateTimeField(auto_now_add=True)
     update = models.DateTimeField(auto_now=True)
