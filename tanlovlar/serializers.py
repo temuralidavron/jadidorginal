@@ -5,4 +5,4 @@ from tanlovlar.models import Tanlovlar
 class TanlovlarSerializer(serializers.ModelSerializer):
     class Meta:
         model = Tanlovlar
-        fields = '__all__'
+        fields = ('id', 'kalit', 'qiymat',)

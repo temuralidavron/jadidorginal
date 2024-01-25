@@ -10,7 +10,7 @@ class AsarlarSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Asarlar
-        fields = ('id', 'title', 'jadid_fullname', 'create', 'update', 'image', 'file', 'type',)
+        fields = ('id', 'title', 'jadid_fullname', 'jadid', 'create', 'update', 'image', 'file', 'type',)
 
     def get_jadid_fullname(self, obj):
         return obj.jadid.fullname if obj.jadid else None
@@ -31,7 +31,7 @@ class MaqolalarSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Maqolalar
-        fields = ('id', 'title', 'jadid_fullname', 'create', 'update', 'image', 'file', 'type',)
+        fields = ('id', 'title', 'jadid_fullname', 'jadid', 'create', 'update', 'image', 'file', 'type',)
 
     def get_jadid_fullname(self, obj):
         return obj.jadid.fullname if obj.jadid else None
@@ -73,7 +73,7 @@ class SherlarSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Sherlar
-        fields = ('id', 'title', 'jadid_fullname', 'create', 'update', 'image', 'file', 'type',)
+        fields = ('id', 'title', 'jadid_fullname', 'jadid', 'create', 'update', 'image', 'file', 'type',)
 
     def get_jadid_fullname(self, obj):
         return obj.jadid.fullname if obj.jadid else None
@@ -94,7 +94,7 @@ class HotiralarSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Hotiralar
-        fields = ('id', 'title', 'jadid_fullname', 'create', 'update', 'image', 'file', 'type',)
+        fields = ('id', 'title', 'jadid_fullname', 'jadid', 'create', 'update', 'image', 'file', 'type',)
 
     def get_jadid_fullname(self, obj):
         return obj.jadid.fullname if obj.jadid else None
@@ -113,7 +113,7 @@ class HotiralarSerializer(serializers.ModelSerializer):
 class HikmatlarSerializer(serializers.ModelSerializer):
     class Meta:
         model = Hikmatlar
-        fields = '__all__'
+        fields = ('id', 'text', 'create', 'update',)
 
     def to_representation(self, instance):
         data = super().to_representation(instance)
@@ -129,7 +129,7 @@ class HikmatlarSerializer(serializers.ModelSerializer):
 class Arxiv_hujjatlarSerializer(serializers.ModelSerializer):
     class Meta:
         model = Arxiv_hujjatlar
-        fields = '__all__'
+        fields = ('id', 'title', 'type', 'image', 'file',)
 
     def to_representation(self, instance):
         data = super().to_representation(instance)
@@ -145,7 +145,7 @@ class Arxiv_hujjatlarSerializer(serializers.ModelSerializer):
 class DissertatsiyaSerializer(serializers.ModelSerializer):
     class Meta:
         model = Dissertatsiya
-        fields = '__all__'
+        fields = ('id', 'title', 'image', 'file', 'create', 'update',)
 
     def to_representation(self, instance):
         data = super().to_representation(instance)

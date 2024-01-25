@@ -5,7 +5,7 @@ from manbalar.models import Videolar, Rasmlar, Audiolar
 class VideolarSerializer(serializers.ModelSerializer):
     class Meta:
         model = Videolar
-        fields = '__all__'
+        fields = ('id', 'video', 'link', 'file', 'create', 'update',)
 
     def to_representation(self, instance):
         data = super().to_representation(instance)
@@ -20,7 +20,7 @@ class VideolarSerializer(serializers.ModelSerializer):
 class RasmlarSerializer(serializers.ModelSerializer):
     class Meta:
         model = Rasmlar
-        fields = '__all__'
+        fields = ('id', 'title', 'image', 'create', 'update',)
 
     def to_representation(self, instance):
         data = super().to_representation(instance)
@@ -36,7 +36,7 @@ class RasmlarSerializer(serializers.ModelSerializer):
 class AudiolarSerializer(serializers.ModelSerializer):
     class Meta:
         model = Audiolar
-        fields = '__all__'
+        fields = ('id', 'title', 'audio', 'create', 'update',)
 
     def to_representation(self, instance):
         data = super().to_representation(instance)
