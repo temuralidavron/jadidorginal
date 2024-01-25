@@ -10,3 +10,5 @@ class Hikmatli_sozlarSerializer(serializers.ModelSerializer):
 
     def get_jadid_fullname(self, obj):
         return obj.jadid.fullname if obj.jadid else None
+
+
