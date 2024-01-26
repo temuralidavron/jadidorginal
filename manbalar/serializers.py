@@ -5,7 +5,7 @@ from manbalar.models import Videolar, Rasmlar, Audiolar
 class VideolarSerializer(serializers.ModelSerializer):
     class Meta:
         model = Videolar
-        fields = ('id', 'video', 'link', 'file', 'create', 'update',)
+        fields = ('id', 'title', 'video', 'link', 'file', 'create', 'update',)
 
     def to_representation(self, instance):
         data = super().to_representation(instance)
