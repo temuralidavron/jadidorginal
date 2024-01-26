@@ -1,5 +1,3 @@
-from urllib.parse import urljoin
-
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 
@@ -9,12 +7,6 @@ from jadidlar.models import Jadid
 from hujjatlar.models import Asarlar, Maqolalar
 from hikmatli_sozlar.models import Hikmatli_sozlar
 
-
-def update_image_urls(objects, request, target_base_url):
-    for obj in objects:
-        if 'image' in obj and obj['image']:
-            obj['image'] = urljoin(target_base_url, obj['image'])
-    return objects
 
 @api_view(['GET'])
 def full_text_search(request):
@@ -28,12 +20,42 @@ def full_text_search(request):
     objs_hikmat = Hikmatli_sozlar.objects.filter(text__icontains=data).values()
     objs_maqola = Maqolalar.objects.filter(title__icontains=data).values()
 
-    return_data['slider'] = update_image_urls(objs_slider, request, 'https://jadidlar.pythonanywhere.com')
-    return_data['yangi'] = update_image_urls(objs_yangi, request, 'https://jadidlar.pythonanywhere.com')
-    return_data['jadid'] = update_image_urls(objs_jadid, request, 'https://jadidlar.pythonanywhere.com')
-    return_data['asar'] = update_image_urls(objs_asar, request, 'https://jadidlar.pythonanywhere.com')
-    return_data['hikmat'] = update_image_urls(objs_hikmat, request, 'https://jadidlar.pythonanywhere.com')
-    return_data['maqola'] = update_image_urls(objs_maqola, request, 'https://jadidlar.pythonanywhere.com')
+    return_data['slider'] = objs_slider
+    return_data['yangi'] = objs_yangi
+    return_data['jadid'] = objs_jadid
+    return_data['asar'] = objs_asar
+    return_data['hikmat'] = objs_hikmat
+    return_data['maqola'] = objs_maqola
+
+    base_url = request.build_absolute_uri('/')[:-1] + '/media/'
+
+    for key in return_data:
+        if key == 'slider':
+            for obj in return_data[key]:
+                # print(request.build_absolute_uri('/')[:-1])
+                # print('media/')
+                # print(obj['image'])
+                if obj['image'] != '':
+                    obj['image'] = request.build_absolute_uri('/')[:-1] + '/media/' + obj['image']
+        if key == 'yangi':
+            for obj in return_data[key]:
+                if obj['image'] != '':
+                    obj['image'] = request.build_absolute_uri('/')[:-1] + '/media/' + obj['image']
+        if key == 'jadid':
+            for obj in return_data[key]:
+                if obj['image'] != '':
+                    obj['image'] = request.build_absolute_uri('/')[:-1] + '/media/' + obj['image']
+        if key == 'asar':
+            for obj in return_data[key]:
+                if obj['image'] != '':
+                    obj['image'] = request.build_absolute_uri('/')[:-1] + '/media/' + obj['image']
+                if 'file' in obj and obj['file']:
+                    obj['file'] = base_url + obj['file']
+        if key == 'maqola':
+            for obj in return_data[key]:
+                if obj['image'] != '':
+                    obj['image'] = request.build_absolute_uri('/')[:-1] + '/media/' + obj['image']
+                if 'file' in obj and obj['file']:
+                    obj['file'] = base_url + obj['file']
 
     return Response(data=return_data)
-
