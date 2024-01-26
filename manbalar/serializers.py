@@ -36,7 +36,7 @@ class RasmlarSerializer(serializers.ModelSerializer):
 class AudiolarSerializer(serializers.ModelSerializer):
     class Meta:
         model = Audiolar
-        fields = ('id', 'title', 'audio', 'create', 'update',)
+        fields = ('id', 'title', 'image', 'audio', 'create', 'update',)
 
     def to_representation(self, instance):
         data = super().to_representation(instance)
