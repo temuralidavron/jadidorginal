@@ -44,26 +44,32 @@ class JadidSerializer(serializers.ModelSerializer):
                         maqola['image'] = f"http://127.0.0.1:8000{maqola['image']}"
 
         if tadqiqotlar:
-            data['tadqiqotlar'] = TadqiqotlarSerializer(tadqiqotlar, many=True).data
+            data['tadqiqotlar'] = MaqolalarSerializer(tadqiqotlar, many=True).data
             if 'tadqiqotlar' in data:
                 for tadqiqot in data['tadqiqotlar']:
                     if 'file' in tadqiqot and tadqiqot['file']:
                         tadqiqot['file'] = f"http://127.0.0.1:8000{tadqiqot['file']}"
+                    if 'image' in tadqiqot and tadqiqot['image']:
+                        tadqiqot['image'] = f"http://127.0.0.1:8000{tadqiqot['image']}"
                     # Add more fields as needed
 
         if sherlar:
-            data['sherlar'] = SherlarSerializer(sherlar, many=True).data
+            data['sherlar'] = MaqolalarSerializer(sherlar, many=True).data
             if 'sherlar' in data:
                 for sher in data['sherlar']:
                     if 'file' in sher and sher['file']:
                         sher['file'] = f"http://127.0.0.1:8000{sher['file']}"
+                    if 'image' in sher and sher['image']:
+                        sher['image'] = f"http://127.0.0.1:8000{sher['image']}"
 
         if hotiralar:
-            data['hotiralar'] = HotiralarSerializer(hotiralar, many=True).data
+            data['hotiralar'] = MaqolalarSerializer(hotiralar, many=True).data
             if 'hotiralar' in data:
                 for hotira in data['hotiralar']:
                     if 'file' in hotira and hotira['file']:
                         hotira['file'] = f"http://127.0.0.1:8000{hotira['file']}"
+                    if 'image' in hotira and hotira['image']:
+                        hotira['image'] = f"http://127.0.0.1:8000{hotira['image']}"
 
         if images:
             data['images'] = [{'image': f"http://127.0.0.1:8000{img.image.url}"} for img in images]
