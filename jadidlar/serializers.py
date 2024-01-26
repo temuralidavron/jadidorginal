@@ -53,11 +53,6 @@ class JadidSerializer(serializers.ModelSerializer):
                 if 'file' in maqola and maqola['file']:
                     maqola['file'] = request.build_absolute_uri(maqola['file'])
 
-        if 'hikmatli_sozlar' in data:
-            for hikmatli_soz in data['hikmatli_sozlar']:
-                if 'file' in hikmatli_soz and hikmatli_soz['file']:
-                    hikmatli_soz['file'] = request.build_absolute_uri(hikmatli_soz['file'])
-
         if 'tadqiqotlar' in data:
             for tadqiqot in data['tadqiqotlar']:
                 if 'file' in tadqiqot and tadqiqot['file']:
