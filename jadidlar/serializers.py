@@ -43,4 +43,34 @@ class JadidSerializer(serializers.ModelSerializer):
             request = self.context.get('request')
             data['images'] = [{'image': request.build_absolute_uri(img.image.url)} for img in images]
 
+        if 'asarlar' in data:
+            for asar in data['asarlar']:
+                if 'file' in asar and asar['file']:
+                    asar['file'] = request.build_absolute_uri(asar['file'])
+
+        if 'maqolalar' in data:
+            for maqola in data['maqolalar']:
+                if 'file' in maqola and maqola['file']:
+                    maqola['file'] = request.build_absolute_uri(maqola['file'])
+
+        if 'hikmatli_sozlar' in data:
+            for hikmatli_soz in data['hikmatli_sozlar']:
+                if 'file' in hikmatli_soz and hikmatli_soz['file']:
+                    hikmatli_soz['file'] = request.build_absolute_uri(hikmatli_soz['file'])
+
+        if 'tadqiqotlar' in data:
+            for tadqiqot in data['tadqiqotlar']:
+                if 'file' in tadqiqot and tadqiqot['file']:
+                    tadqiqot['file'] = request.build_absolute_uri(tadqiqot['file'])
+
+        if 'sherlar' in data:
+            for sher in data['sherlar']:
+                if 'file' in sher and sher['file']:
+                    sher['file'] = request.build_absolute_uri(sher['file'])
+
+        if 'hotiralar' in data:
+            for hotira in data['hotiralar']:
+                if 'file' in hotira and hotira['file']:
+                    hotira['file'] = request.build_absolute_uri(hotira['file'])
+
         return data
