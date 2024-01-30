@@ -1,3 +1,4 @@
+from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework.generics import ListAPIView
 from rest_framework.response import Response
 from django.shortcuts import get_object_or_404
@@ -15,6 +16,8 @@ class Hikmatli_sozlarListView(ListAPIView):
     filter_backends = (filters.SearchFilter,)
     serializer_class = Hikmatli_sozlarSerializer
     pagination_class = ResultsSetPagination
+    filter_backends = [DjangoFilterBackend]
+    filterset_fields = ['jadid__id', ]
 
     def get_queryset(self):
         return Hikmatli_sozlar.objects.all()

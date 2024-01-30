@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'ckeditor_uploader',
     "modeltranslation",
     'corsheaders',
+    'django_filters',
 
     'api',
     'foydali_havolalar',
@@ -61,6 +62,10 @@ INSTALLED_APPS = [
     'tanlovlar',
     'matbuotlar',
 ]
+
+REST_FRAMEWORK = {
+    'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend']
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

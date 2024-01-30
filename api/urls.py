@@ -1,5 +1,8 @@
 from django.urls import path
 
+from api.views.down import FileDownMaqolaView, FileDownAsarView, FileDownTadqiqotView, FileDownSherView, \
+    FileDownHotiraView, FileDownArxiv_hujjatView, FileDownDissertatsiyaView, FileDownMatbuotView, \
+    FileDownSahifaView
 from api.views.foydali_havolalar import Foydali_havolalarListView, foydali_havolalardetail
 from api.views.full_text_search import full_text_search
 from api.views.hikmatli_sozlar import Hikmatli_sozlarListView, hikmatli_sozlardetail
@@ -94,6 +97,17 @@ urlpatterns = [
 
 
     path('search/', full_text_search, name='search'),
+
+
+    path('asarlar/downland/<int:pk>/', FileDownAsarView.as_view(), name='asarlar_downland'),
+    path('maqolalar/downland/<int:pk>/', FileDownMaqolaView.as_view(), name='maqolalar_downland'),
+    path('tadqiqotlar/downland/<int:pk>/', FileDownTadqiqotView.as_view(), name='tadqiqotlar_downland'),
+    path('sherlar/downland/<int:pk>/', FileDownSherView.as_view(), name='sherlar_downland'),
+    path('hotiralar/downland/<int:pk>/', FileDownHotiraView.as_view(), name='hotiralar_downland'),
+    path('arxiv_hujjatlar/downland/<int:pk>/', FileDownArxiv_hujjatView.as_view(), name='arxiv_hujjatlar_downland'),
+    path('dissertatsiya/downland/<int:pk>/', FileDownDissertatsiyaView.as_view(), name='dissertatsiya_downland'),
+    path('matbuotlar/downland/<int:pk>/', FileDownMatbuotView.as_view(), name='matbuotlar_downland'),
+    path('sahifalar/downland/<int:pk>/', FileDownSahifaView.as_view(), name='sahifalar_downland'),
 
 ]
 if settings.DEBUG:

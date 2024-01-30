@@ -5,7 +5,7 @@ from sahifalar.models import Sahifalar
 class SahifalarSerializer(serializers.ModelSerializer):
     class Meta:
         model = Sahifalar
-        fields = ('id', 'title', 'text', 'image', 'file', 'create', 'update',)
+        fields = ('id', 'title', 'text', 'image', 'file', 'create', 'update', 'count',)
 
     def to_representation(self, instance):
         data = super().to_representation(instance)

@@ -7,6 +7,7 @@ class Sahifalar(models.Model):
     text = RichTextField(verbose_name='Matn')
     image = models.ImageField(upload_to='images/', null=True, blank=True)
     file = models.FileField(upload_to='files/', verbose_name='Fayl')
+    count = models.BigIntegerField(null=True, blank=True, default=0)
     create = models.DateTimeField(auto_now_add=True, verbose_name='Yaratilgan vaqti')
     update = models.DateTimeField(auto_now=True, verbose_name='Yangilangan vaqti')
 

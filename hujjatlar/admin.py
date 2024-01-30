@@ -11,7 +11,8 @@ class AsarlarFileInline(admin.TabularInline):
 @admin.register(Asarlar)
 class AsarlarAdmin(admin.ModelAdmin):
     inlines = [AsarlarFileInline]
-    fields = ('title_uz', 'title_ru', 'jadid', 'image', 'file', 'type',)
+    fields = ('title_uz', 'title_ru', 'jadid', 'image', 'file', 'type', 'count')
+    readonly_fields = ('count',)
 
 
 class MaqolalarFileInline(admin.TabularInline):
@@ -22,6 +23,7 @@ class MaqolalarFileInline(admin.TabularInline):
 class MaqolalarAdmin(admin.ModelAdmin):
     inlines = [MaqolalarFileInline]
     fields = ('title_uz', 'title_ru', 'jadid', 'image', 'file', 'type',)
+    readonly_fields = ('count',)
 
 
 class TadqiqotlarFileInline(admin.TabularInline):
@@ -32,6 +34,7 @@ class TadqiqotlarFileInline(admin.TabularInline):
 class TadqiqotlarAdmin(admin.ModelAdmin):
     inlines = [TadqiqotlarFileInline]
     fields = ('title_uz', 'title_ru', 'jadid', 'image', 'file', 'type',)
+    readonly_fields = ('count',)
 
 
 class SherlarFileInline(admin.TabularInline):
@@ -42,6 +45,7 @@ class SherlarFileInline(admin.TabularInline):
 class SherlarAdmin(admin.ModelAdmin):
     inlines = [SherlarFileInline]
     fields = ('title_uz', 'title_ru', 'jadid', 'image', 'file', 'type',)
+    readonly_fields = ('count',)
 
 
 class HotiralarFileInline(admin.TabularInline):
@@ -52,6 +56,7 @@ class HotiralarFileInline(admin.TabularInline):
 class HotiralarAdmin(admin.ModelAdmin):
     inlines = [HotiralarFileInline]
     fields = ('title_uz', 'title_ru', 'jadid', 'image', 'file', 'type',)
+    readonly_fields = ('count',)
 
 
 class HikmatlarAdmin(admin.ModelAdmin):
@@ -60,6 +65,7 @@ class HikmatlarAdmin(admin.ModelAdmin):
     search_fields = ('text',)
     list_per_page = 25
     fields = ('title_uz', 'title_ru', 'jadid', 'image', 'file',)
+    readonly_fields = ('count',)
 
 
 class Arxiv_hujjatlarFileInline(admin.TabularInline):
@@ -70,6 +76,7 @@ class Arxiv_hujjatlarFileInline(admin.TabularInline):
 class Arxiv_hujjatlarAdmin(admin.ModelAdmin):
     inlines = [Arxiv_hujjatlarFileInline]
     fields = ('title_uz', 'title_ru', 'image', 'file', 'type',)
+    readonly_fields = ('count',)
 
 
 class DissertatsiyaFileInline(admin.TabularInline):
@@ -80,3 +87,4 @@ class DissertatsiyaFileInline(admin.TabularInline):
 class DissertatsiyaAdmin(admin.ModelAdmin):
     inlines = [DissertatsiyaFileInline]
     fields = ('title_uz', 'title_ru', 'image', 'file',)
+    readonly_fields = ('count',)

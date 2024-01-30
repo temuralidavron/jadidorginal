@@ -17,6 +17,7 @@ class Matbuotlar(models.Model):
     title = models.CharField(max_length=100)
     image = models.ImageField(upload_to='matbuotlar')
     file = models.FileField(upload_to='matbuotlar')
+    count = models.BigIntegerField(null=True, blank=True, default=0)
 
 
     def __str__(self):
