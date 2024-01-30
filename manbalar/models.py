@@ -5,7 +5,7 @@ from django.utils.translation import gettext_lazy as _
 
 
 def validate_audio_extension(value):
-    allowed_extensions = ['.mp3', '.wav', '.ogg', '.mp4', '.avi', '.mkv' ]  # Qo'shimcha audio formatlarni qo'shing
+    allowed_extensions = ['.mp3', '.wav', '.ogg',]  # Qo'shimcha audio formatlarni qo'shing
     if not any(value.name.lower().endswith(ext) for ext in allowed_extensions):
         raise ValidationError(_('Faqat MP3, WAV yoki OGG formatlari qo\'llaniladi.'))
 
@@ -57,7 +57,7 @@ class Videolar(models.Model):
 
 class VideoFile(models.Model):
     videolarmodel = models.ForeignKey(Videolar, on_delete=models.CASCADE, related_name='video_files')
-    video = models.FileField(upload_to='video/', validators=[validate_audio_extension])
+    video = models.FileField(upload_to='video/', validators=[validate_video_extension])
 
     def clean(self):
         super().clean()
