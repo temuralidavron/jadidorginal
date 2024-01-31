@@ -20,6 +20,13 @@ def full_text_search(request):
     objs_hikmat = Hikmatli_sozlar.objects.filter(text__icontains=data).values()
     objs_maqola = Maqolalar.objects.filter(title__icontains=data).values()
 
+
+    for obj in objs_hikmat:
+        if obj['jadid_id']:
+            id = obj['jadid_id']
+            jadid = Jadid.objects.get(id=id)
+            obj['jadid_fullname'] = jadid.fullname
+
     return_data['slider'] = objs_slider
     return_data['yangi'] = objs_yangi
     return_data['jadid'] = objs_jadid
@@ -47,12 +54,20 @@ def full_text_search(request):
                     obj['image'] = request.build_absolute_uri('/')[:-1] + '/media/' + obj['image']
         if key == 'asar':
             for obj in return_data[key]:
+                if obj['jadid_id']:
+                    id = obj['jadid_id']
+                    jadid = Jadid.objects.get(id=id)
+                    obj['jadid_fullname'] = jadid.fullname
                 if obj['image'] != '':
                     obj['image'] = request.build_absolute_uri('/')[:-1] + '/media/' + obj['image']
                 if 'file' in obj and obj['file']:
                     obj['file'] = base_url + obj['file']
         if key == 'maqola':
             for obj in return_data[key]:
+                if obj['jadid_id']:
+                    id = obj['jadid_id']
+                    jadid = Jadid.objects.get(id=id)
+                    obj['jadid_fullname'] = jadid.fullname
                 if obj['image'] != '':
                     obj['image'] = request.build_absolute_uri('/')[:-1] + '/media/' + obj['image']
                 if 'file' in obj and obj['file']:
