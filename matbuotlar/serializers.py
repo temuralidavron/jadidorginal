@@ -14,7 +14,7 @@ class MatbuotlarSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Matbuotlar
-        fields = ('id', 'title', 'image', 'file', 'categoriya', 'count',)
+        fields = ('id', 'title', 'image', 'file', 'categoriya',)
 
     #
     def get_categoriya(self, obj):
