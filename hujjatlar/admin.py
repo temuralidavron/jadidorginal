@@ -66,7 +66,7 @@ class Arxiv_hujjatlarFileInline(admin.TabularInline):
 @admin.register(Arxiv_hujjatlar)
 class Arxiv_hujjatlarAdmin(admin.ModelAdmin):
     inlines = [Arxiv_hujjatlarFileInline]
-    fields = ('title_uz', 'title_ru', 'image', 'file', 'type',)
+    fields = ('title_uz', 'title_ru', 'image', 'file', 'type', 'count',)
     readonly_fields = ('count',)
 
 
@@ -77,5 +77,5 @@ class DissertatsiyaFileInline(admin.TabularInline):
 @admin.register(Dissertatsiya)
 class DissertatsiyaAdmin(admin.ModelAdmin):
     inlines = [DissertatsiyaFileInline]
-    fields = ('title_uz', 'title_ru', 'image', 'file',)
+    fields = ('title_uz', 'title_ru', 'image', 'file', 'count',)
     readonly_fields = ('count',)
