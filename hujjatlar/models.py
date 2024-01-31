@@ -168,6 +168,7 @@ class Hotiralar(models.Model):
 class HotiralarFile(models.Model):
     hotiralar = models.ForeignKey(Hotiralar, on_delete=models.CASCADE, related_name='files')
     file = models.FileField(upload_to='files/hotiralar')
+    count = models.BigIntegerField(null=True, blank=True, default=0)
 
     def __str__(self):
         return self.file.url

@@ -55,7 +55,7 @@ class HotiralarFileInline(admin.TabularInline):
 @admin.register(Hotiralar)
 class HotiralarAdmin(admin.ModelAdmin):
     inlines = [HotiralarFileInline]
-    fields = ('title_uz', 'title_ru', 'jadid', 'image', 'file', 'type',)
+    fields = ('title_uz', 'title_ru', 'jadid', 'image', 'file', 'type', 'count',)
     readonly_fields = ('count',)
 
 
