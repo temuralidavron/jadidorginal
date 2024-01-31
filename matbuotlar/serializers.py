@@ -1,22 +1,13 @@
 from rest_framework import serializers
-
-from matbuotlar.models import Matbuotlar, Matbuot_categoriya
-
-
-class Matbuot_categoriyaSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Matbuot_categoriya
-        fields = ('id', 'title',)
+from matbuotlar.models import Matbuotlar
 
 
 class MatbuotlarSerializer(serializers.ModelSerializer):
-    categoriya = serializers.SerializerMethodField()
+    type = serializers.SerializerMethodField()
 
     class Meta:
         model = Matbuotlar
-        fields = ('id', 'title', 'image', 'file', 'categoriya', 'count',)
+        fields = ('id', 'title', 'image', 'file', 'type', 'count',)
 
-    #
-    def get_categoriya(self, obj):
-        print(obj)
-        return obj.categoriya.title if obj.categoriya else None
+    def get_type(self, obj):
+        return obj.get_type_display()

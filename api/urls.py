@@ -12,8 +12,7 @@ from api.views.ishtirokchilar import IshtirokchilarListView, ishtirokchilardetai
 from api.views.jadidlar import JadidlarListView, jadidlardetail
 from api.views.manbalar import AudiolarListView, audiolardetail, VideolarListView, videolardetail, RasmlarListView, \
     rasmlardetail
-from api.views.matboutlar import Matbuot_categoriyaListView, matbuot_categoriyadetail, MatbuotlarListView, \
-    matbuotlardetail
+from api.views.matboutlar import MatbuotlarListView, matbuotlardetail
 from api.views.sahifalar import SahifalarListView, sahifalardetail
 from api.views.slayder import SlayderListView, slayderdetail
 from api.views.tadbirlar import KanferensiyalarListView, kanferensiyalardetail, SeminarlarListView, seminarlardetail, \
@@ -84,9 +83,6 @@ urlpatterns = [
 
     path('tanlovlar/', TanlovlarListView.as_view(), name='tanlovlar-list'),
     path('tanlovlar/<int:pk>/', tanlovlardetail, name='tanlovlar-detail'),
-
-    path('matbuot_categoriya/', Matbuot_categoriyaListView.as_view(), name='matbuot_categoriya-list'),
-    path('matbuot_categoriya/<int:pk>/', matbuot_categoriyadetail, name='matbuot_categoriya-detail'),
 
     path('matbuotlar/', MatbuotlarListView.as_view(), name='matbuotlar-list'),
     path('matbuotlar/<int:pk>/', matbuotlardetail, name='matbuotlar-detail'),
