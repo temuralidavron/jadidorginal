@@ -4,10 +4,10 @@ from rest_framework.response import Response
 from django.shortcuts import get_object_or_404
 
 from api.pagination import ResultsSetPagination
-from hujjatlar.models import Asarlar, Maqolalar, Tadqiqotlar, Sherlar, Hotiralar, Hikmatlar, Arxiv_hujjatlar, \
+from hujjatlar.models import Asarlar, Maqolalar, Tadqiqotlar, Sherlar, Hotiralar, Arxiv_hujjatlar, \
     Dissertatsiya
 from hujjatlar.serializers import AsarlarSerializer, MaqolalarSerializer, TadqiqotlarSerializer, SherlarSerializer, \
-    HotiralarSerializer, HikmatlarSerializer, Arxiv_hujjatlarSerializer, DissertatsiyaSerializer
+    HotiralarSerializer, Arxiv_hujjatlarSerializer, DissertatsiyaSerializer
 
 from rest_framework.decorators import api_view
 
@@ -171,33 +171,33 @@ def hotiralardetail(request, pk):
     return Response(serializer.data)
 
 
-class HikmatlarListView(ListAPIView):
-    search_fields = ['text']
-    filter_backends = (filters.SearchFilter,)
-    serializer_class = HikmatlarSerializer
-    pagination_class = ResultsSetPagination
-
-    @swagger_auto_schema(
-        manual_parameters=[
-            openapi.Parameter('type', openapi.IN_QUERY, description='Filter by type', type=openapi.TYPE_STRING),
-        ]
-    )
-    def get(self, request, *args, **kwargs):
-        return super().get(request, *args, **kwargs)
-
-    def get_queryset(self):
-        type_param = self.request.query_params.get('type', None)
-        if type_param:
-            return Hikmatlar.objects.filter(type=type_param)
-        else:
-            return Hikmatlar.objects.all()
-
-
-@api_view(['GET'])
-def hikmatlardetail(request, pk):
-    hikmatlar = get_object_or_404(Hikmatlar, pk=pk)
-    serializer = HikmatlarSerializer(hikmatlar, context={'request': request})
-    return Response(serializer.data)
+# class HikmatlarListView(ListAPIView):
+#     search_fields = ['text']
+#     filter_backends = (filters.SearchFilter,)
+#     serializer_class = HikmatlarSerializer
+#     pagination_class = ResultsSetPagination
+#
+#     @swagger_auto_schema(
+#         manual_parameters=[
+#             openapi.Parameter('type', openapi.IN_QUERY, description='Filter by type', type=openapi.TYPE_STRING),
+#         ]
+#     )
+#     def get(self, request, *args, **kwargs):
+#         return super().get(request, *args, **kwargs)
+#
+#     def get_queryset(self):
+#         type_param = self.request.query_params.get('type', None)
+#         if type_param:
+#             return Hikmatlar.objects.filter(type=type_param)
+#         else:
+#             return Hikmatlar.objects.all()
+#
+#
+# @api_view(['GET'])
+# def hikmatlardetail(request, pk):
+#     hikmatlar = get_object_or_404(Hikmatlar, pk=pk)
+#     serializer = HikmatlarSerializer(hikmatlar, context={'request': request})
+#     return Response(serializer.data)
 
 
 class Arxiv_hujjatlarListView(ListAPIView):

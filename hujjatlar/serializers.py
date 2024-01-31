@@ -1,8 +1,8 @@
 from rest_framework import serializers
 
-from .models import Asarlar, Maqolalar, Tadqiqotlar, Sherlar, Hotiralar, Hikmatlar, Arxiv_hujjatlar, Dissertatsiya
+from .models import Asarlar, Maqolalar, Tadqiqotlar, Sherlar, Hotiralar, Arxiv_hujjatlar, Dissertatsiya
 
-from django.conf import settings
+# from django.conf import settings
 
 
 class AsarlarSerializer(serializers.ModelSerializer):
@@ -110,20 +110,20 @@ class HotiralarSerializer(serializers.ModelSerializer):
         return data
 
 
-class HikmatlarSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Hikmatlar
-        fields = ('id', 'text', 'create', 'update',)
-
-    def to_representation(self, instance):
-        data = super().to_representation(instance)
-        files = instance.files.all()
-
-        if files:
-            request = self.context.get('request')
-            data['files'] = [{'file': request.build_absolute_uri(img.file.url)} for img in files]
-
-        return data
+# class HikmatlarSerializer(serializers.ModelSerializer):
+#     class Meta:
+#         model = Hikmatlar
+#         fields = ('id', 'text', 'create', 'update',)
+#
+#     def to_representation(self, instance):
+#         data = super().to_representation(instance)
+#         files = instance.files.all()
+#
+#         if files:
+#             request = self.context.get('request')
+#             data['files'] = [{'file': request.build_absolute_uri(img.file.url)} for img in files]
+#
+#         return data
 
 
 class Arxiv_hujjatlarSerializer(serializers.ModelSerializer):

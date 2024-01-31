@@ -1,6 +1,6 @@
 from modeltranslation.translator import TranslationOptions, register
 
-from hujjatlar.models import Asarlar, Maqolalar, Tadqiqotlar, Sherlar, Hotiralar, Hikmatlar, Arxiv_hujjatlar, \
+from hujjatlar.models import Asarlar, Maqolalar, Tadqiqotlar, Sherlar, Hotiralar, Arxiv_hujjatlar, \
     Dissertatsiya
 
 
@@ -29,9 +29,9 @@ class HotiralarTranslationOptions(TranslationOptions):
     fields = ('title',)
 
 
-@register(Hikmatlar)
-class HikmatlarTranslationOptions(TranslationOptions):
-    fields = ('text',)
+# @register(Hikmatlar)
+# class HikmatlarTranslationOptions(TranslationOptions):
+#     fields = ('text',)
 
 
 @register(Arxiv_hujjatlar)

@@ -6,8 +6,8 @@ from api.views.foydali_havolalar import Foydali_havolalarListView, foydali_havol
 from api.views.full_text_search import full_text_search
 from api.views.hikmatli_sozlar import Hikmatli_sozlarListView, hikmatli_sozlardetail
 from api.views.hujjatlar import AsarlarListView, asarlardetail, MaqolalarListView, maqolalardetail, TadqiqotlarListView, \
-    tadqiqotlardetail, SherlarListView, sherlardetail, HotiralarListView, hotiralardetail, HikmatlarListView, \
-    hikmatlardetail, Arxiv_hujjatlarListView, arxiv_hujjatlardetail, DissertatsiyaListView, dissertatsiyadetail
+    tadqiqotlardetail, SherlarListView, sherlardetail, HotiralarListView, hotiralardetail, Arxiv_hujjatlarListView, \
+    arxiv_hujjatlardetail, DissertatsiyaListView, dissertatsiyadetail
 from api.views.ishtirokchilar import IshtirokchilarListView, ishtirokchilardetail
 from api.views.jadidlar import JadidlarListView, jadidlardetail
 from api.views.manbalar import AudiolarListView, audiolardetail, VideolarListView, videolardetail, RasmlarListView, \
@@ -45,9 +45,6 @@ urlpatterns = [
 
     path('hotiralar/', HotiralarListView.as_view(), name='hotiralar-list'),
     path('hotiralar/<int:pk>/', hotiralardetail, name='hotiralar-detail'),
-
-    path('hikmatlar/', HikmatlarListView.as_view(), name='hikmatlar-list'),
-    path('hikmatlar/<int:pk>/', hikmatlardetail, name='hikmatlar-detail'),
 
     path('arxiv_hujjatlar/', Arxiv_hujjatlarListView.as_view(), name='arxiv_hujjatlar-list'),
     path('arxiv_hujjatlar/<int:pk>/', arxiv_hujjatlardetail, name='arxiv_hujjatlar-detail'),

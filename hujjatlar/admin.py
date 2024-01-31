@@ -1,5 +1,5 @@
 from django.contrib import admin
-from hujjatlar.models import Asarlar, Maqolalar, Tadqiqotlar, Sherlar, Hotiralar, Hikmatlar, Arxiv_hujjatlar, \
+from hujjatlar.models import Asarlar, Maqolalar, Tadqiqotlar, Sherlar, Hotiralar, Arxiv_hujjatlar, \
     Dissertatsiya, AsarlarFile, MaqolalarFile, TadqiqotlarFile, SherlarFile, HotiralarFile, Arxiv_hujjatlarFile, \
     DissertatsiyaFile
 
@@ -56,15 +56,6 @@ class HotiralarFileInline(admin.TabularInline):
 class HotiralarAdmin(admin.ModelAdmin):
     inlines = [HotiralarFileInline]
     fields = ('title_uz', 'title_ru', 'jadid', 'image', 'file', 'type',)
-    readonly_fields = ('count',)
-
-
-class HikmatlarAdmin(admin.ModelAdmin):
-    list_display = ('text', 'create', 'update')
-    # list_filter = ('text', 'create', 'update')
-    search_fields = ('text',)
-    list_per_page = 25
-    fields = ('title_uz', 'title_ru', 'jadid', 'image', 'file',)
     readonly_fields = ('count',)
 
 
