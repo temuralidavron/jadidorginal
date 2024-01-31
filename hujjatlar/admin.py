@@ -22,7 +22,7 @@ class MaqolalarFileInline(admin.TabularInline):
 @admin.register(Maqolalar)
 class MaqolalarAdmin(admin.ModelAdmin):
     inlines = [MaqolalarFileInline]
-    fields = ('title_uz', 'title_ru', 'jadid', 'image', 'file', 'type',)
+    fields = ('title_uz', 'title_ru', 'jadid', 'image', 'file', 'type', 'count',)
     readonly_fields = ('count',)
 
 
@@ -33,7 +33,7 @@ class TadqiqotlarFileInline(admin.TabularInline):
 @admin.register(Tadqiqotlar)
 class TadqiqotlarAdmin(admin.ModelAdmin):
     inlines = [TadqiqotlarFileInline]
-    fields = ('title_uz', 'title_ru', 'jadid', 'image', 'file', 'type',)
+    fields = ('title_uz', 'title_ru', 'jadid', 'image', 'file', 'type', 'count',)
     readonly_fields = ('count',)
 
 
@@ -44,7 +44,7 @@ class SherlarFileInline(admin.TabularInline):
 @admin.register(Sherlar)
 class SherlarAdmin(admin.ModelAdmin):
     inlines = [SherlarFileInline]
-    fields = ('title_uz', 'title_ru', 'jadid', 'image', 'file', 'type',)
+    fields = ('title_uz', 'title_ru', 'jadid', 'image', 'file', 'type', 'count',)
     readonly_fields = ('count',)
 
 
