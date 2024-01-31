@@ -5,7 +5,7 @@ from rest_framework.views import APIView
 
 from hujjatlar.models import Maqolalar, Asarlar, Tadqiqotlar, Sherlar, Hotiralar, Arxiv_hujjatlar, \
     Dissertatsiya
-# from matbuotlar.models import Matbuotlar
+from matbuotlar.models import Matbuotlar
 from sahifalar.models import Sahifalar
 
 
@@ -114,19 +114,19 @@ class FileDownDissertatsiyaView(APIView):
         return response
 
 
-# class FileDownMatbuotView(APIView):
-#     def get(self, request, pk):
-#         try:
-#             file_instance = Matbuotlar.objects.get(id=pk)
-#         except Matbuotlar.DoesNotExist:
-#             return Response({"error": "File Not Found"}, status=status.HTTP_404_NOT_FOUND)
-#
-#         file_path = file_instance.file.path
-#         file_instance.count += 1
-#         file_instance.save()
-#         response = FileResponse(open(file_path, 'rb'))
-#         response['Content-Disposition'] = f'attachmand; filename="{file_instance.title}"'
-#         return response
+class FileDownMatbuotView(APIView):
+    def get(self, request, pk):
+        try:
+            file_instance = Matbuotlar.objects.get(id=pk)
+        except Matbuotlar.DoesNotExist:
+            return Response({"error": "File Not Found"}, status=status.HTTP_404_NOT_FOUND)
+
+        file_path = file_instance.file.path
+        file_instance.count += 1
+        file_instance.save()
+        response = FileResponse(open(file_path, 'rb'))
+        response['Content-Disposition'] = f'attachmand; filename="{file_instance.title}"'
+        return response
 
 
 class FileDownSahifaView(APIView):

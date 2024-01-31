@@ -16,7 +16,8 @@ class Matbuot_categoriyaAdmin(admin.ModelAdmin):
 @admin.register(Matbuotlar)
 class MatbuotlarAdmin(admin.ModelAdmin):
     list_display = ('categoriya',)
-    fields = ('categoriya', 'title_uz', 'title_ru', 'image', 'file',)
+    fields = ('categoriya', 'title_uz', 'title_ru', 'image', 'file', 'count',)
+    readonly_fields = ('count',)
     search_fields = ('title',)
     list_filter = ('title',)
     # paginator = Paginator
