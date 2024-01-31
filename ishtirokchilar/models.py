@@ -3,8 +3,8 @@ from django.utils.safestring import mark_safe
 
 
 class Ishtirokchilar(models.Model):
-    fullname = models.CharField(max_length=20)
-    position = models.CharField(max_length=30, verbose_name='Lavozimi')
+    fullname = models.CharField(max_length=50)
+    position = models.CharField(max_length=100, verbose_name='Lavozimi')
     image = models.ImageField(upload_to='image')
 
     def __str__(self):
