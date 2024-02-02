@@ -133,9 +133,8 @@ AUTH_PASSWORD_VALIDATORS = [
 LANGUAGE_CODE = 'uz'
 
 LANGUAGES = (
-    ('uz', _('Uzbek')),
     ('ru', _('Russian')),
-
+    ('uz', _('Uzbek')),
 )
 
 TIME_ZONE = 'Asia/Tashkent'
