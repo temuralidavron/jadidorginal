@@ -22,22 +22,13 @@ class AsarlarListView(ListAPIView):
     serializer_class = AsarlarSerializer
     pagination_class = ResultsSetPagination
     filter_backends = [DjangoFilterBackend]
-    filterset_fields = ['jadid__id', ]
+    filterset_fields = ['jadid__id', "turkiston_muxtoriyati", "til_va_imlo", "tadqiqotlar"]
 
-    @swagger_auto_schema(
-        manual_parameters=[
-            openapi.Parameter('type', openapi.IN_QUERY, description='Filter by type', type=openapi.TYPE_STRING),
-        ]
-    )
     def get(self, request, *args, **kwargs):
         return super().get(request, *args, **kwargs)
 
     def get_queryset(self):
-        type_param = self.request.query_params.get('type', None)
-        if type_param:
-            return Asarlar.objects.filter(type=type_param)
-        else:
-            return Asarlar.objects.all()
+        return Asarlar.objects.all()
 
 
 @api_view(['GET'])

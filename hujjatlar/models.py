@@ -12,15 +12,9 @@ class Asarlar(models.Model):
     count = models.BigIntegerField(null=True, blank=True, default=0)
     create = models.DateTimeField(auto_now_add=True)
     update = models.DateTimeField(auto_now=True)
-    Turkiston_muxtoriyati = 'Turkiston muxtoriyati'
-    Tadqiqotlar = 'Tadqiqotlar'
-    Til_va_imlo = 'Til va imlo'
-    TYPE_CHOICE = (
-        (Turkiston_muxtoriyati, 'Turkiston muxtoriyati'),
-        (Tadqiqotlar, 'Tadqiqotlar'),
-        (Til_va_imlo, 'Til va imlo'),
-    )
-    type = models.CharField(max_length=25, choices=TYPE_CHOICE, verbose_name='turi', default=Turkiston_muxtoriyati)
+    turkiston_muxtoriyati = models.BooleanField(default=False, verbose_name='Turkiston muxtoriyati')
+    tadqiqotlar = models.BooleanField(default=False, verbose_name='Tadqiqotlar')
+    til_va_imlo = models.BooleanField(default=False, verbose_name='Til va imlo')
 
     def __str__(self):
         return self.title

@@ -10,7 +10,7 @@ class AsarlarSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Asarlar
-        fields = ('id', 'title', 'jadid_fullname', 'jadid', 'create', 'update', 'image', 'file', 'type', 'count',)
+        fields = ('id', 'title', 'jadid_fullname', 'jadid', 'create', 'update', 'image', 'file', 'count',)
 
     def get_jadid_fullname(self, obj):
         return obj.jadid.fullname if obj.jadid else None
