@@ -175,18 +175,6 @@ CORS_ALLOW_HEADERS = list(default_headers) + [
     'language-code',
 ]
 
-
-SWAGGER_SETTINGS = {
-    'SECURITY_DEFINITIONS': {
-        'Bearer': {
-            'type': 'apiKey',
-            'name': 'Authorization',
-            'in': 'header',
-        },
-    },
-    'USE_SESSION_AUTH': False,
-}
-
 JAZZMIN_SETTINGS = {
     "site_title": "Foydali Havolalar",
     "site_brand": "Fanlar Akademiyasi",
