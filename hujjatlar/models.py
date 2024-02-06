@@ -34,7 +34,7 @@ class AsarlarFile(models.Model):
 
 class Maqolalar(models.Model):
     title = models.CharField(max_length=255, verbose_name='nomi')
-    jadid = models.ForeignKey(Jadid, on_delete=models.CASCADE,  related_name='maqolalar')
+    jadid = models.ForeignKey(Jadid, on_delete=models.CASCADE,  related_name='maqolalar', blank=True, null=True)
     image = models.ImageField(upload_to='images/', null=True, blank=True)
     file = models.FileField(upload_to='files/maqolalar', verbose_name='fayl')
     count = models.BigIntegerField(null=True, blank=True, default=0)
@@ -43,8 +43,33 @@ class Maqolalar(models.Model):
     turkiston_muxtoriyati = models.BooleanField(default=False, verbose_name='Turkiston muxtoriyati')
     tadqiqotlar = models.BooleanField(default=False, verbose_name='Tadqiqotlar')
     til_va_imlo = models.BooleanField(default=False, verbose_name='Til va imlo')
+
+    Tarix = 'Tarix'
+    Siyosat = 'Siyosat'
+    Iqtisod = 'Iqtisod'
+    Madaniyat_va_sanat = 'Madaniyat va sanat'
+    Ijtimoiy_masalalar_va_din = 'Ijtimoiy masalalar va din'
+    Adabiyot = 'Adabiyot'
+    Talim_Tarbiya = 'Talim - Tarbiya'
+    Boshqa_masalalar = 'Boshqa masalalar'
+    Bibliografik_korsatkich = 'Bibliografik korsatkich'
+
+    TYPE_CHOICE = (
+        (Tarix, 'Tarix'),
+        (Siyosat, 'Siyosat'),
+        (Iqtisod, 'Iqtisod'),
+        (Madaniyat_va_sanat, 'Madaniyat va sanat'),
+        (Ijtimoiy_masalalar_va_din, 'Ijtimoiy masalalar va din'),
+        (Adabiyot, 'Adabiyot'),
+        (Talim_Tarbiya, 'Talim - Tarbiya'),
+        (Boshqa_masalalar, 'Boshqa masalalar'),
+        (Bibliografik_korsatkich, 'Bibliografik korsatkich'),
+    )
+    type = models.CharField(max_length=30, choices=TYPE_CHOICE, verbose_name='matbuotlar', blank=True, null=True)
+
     def __str__(self):
         return self.title
+
     class Meta:
         verbose_name = 'Maqola'
         verbose_name_plural = 'Maqolalar'

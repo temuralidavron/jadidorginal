@@ -60,7 +60,6 @@ INSTALLED_APPS = [
     'slayder',
     'tadbirlar',
     'tanlovlar',
-    'matbuotlar',
 ]
 
 REST_FRAMEWORK = {

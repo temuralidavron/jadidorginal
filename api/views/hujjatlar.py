@@ -44,7 +44,7 @@ class MaqolalarListView(ListAPIView):
     serializer_class = MaqolalarSerializer
     pagination_class = ResultsSetPagination
     filter_backends = [DjangoFilterBackend]
-    filterset_fields = ['jadid__id', "turkiston_muxtoriyati", "til_va_imlo", "tadqiqotlar"]
+    filterset_fields = ['jadid__id', "turkiston_muxtoriyati", "til_va_imlo", "tadqiqotlar", "type",]
 
     def get(self, request, *args, **kwargs):
         return super().get(request, *args, **kwargs)
@@ -151,35 +151,6 @@ def hotiralardetail(request, pk):
     hotiralar = get_object_or_404(Hotiralar, pk=pk)
     serializer = HotiralarSerializer(hotiralar, context={'request': request})
     return Response(serializer.data)
-
-
-# class HikmatlarListView(ListAPIView):
-#     search_fields = ['text']
-#     filter_backends = (filters.SearchFilter,)
-#     serializer_class = HikmatlarSerializer
-#     pagination_class = ResultsSetPagination
-#
-#     @swagger_auto_schema(
-#         manual_parameters=[
-#             openapi.Parameter('type', openapi.IN_QUERY, description='Filter by type', type=openapi.TYPE_STRING),
-#         ]
-#     )
-#     def get(self, request, *args, **kwargs):
-#         return super().get(request, *args, **kwargs)
-#
-#     def get_queryset(self):
-#         type_param = self.request.query_params.get('type', None)
-#         if type_param:
-#             return Hikmatlar.objects.filter(type=type_param)
-#         else:
-#             return Hikmatlar.objects.all()
-#
-#
-# @api_view(['GET'])
-# def hikmatlardetail(request, pk):
-#     hikmatlar = get_object_or_404(Hikmatlar, pk=pk)
-#     serializer = HikmatlarSerializer(hikmatlar, context={'request': request})
-#     return Response(serializer.data)
 
 
 class Arxiv_hujjatlarListView(ListAPIView):

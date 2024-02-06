@@ -1,7 +1,7 @@
 from django.urls import path
 
 from api.views.down import FileDownMaqolaView, FileDownAsarView, FileDownTadqiqotView, FileDownSherView, \
-    FileDownHotiraView, FileDownArxiv_hujjatView, FileDownDissertatsiyaView, FileDownSahifaView, FileDownMatbuotView
+    FileDownHotiraView, FileDownArxiv_hujjatView, FileDownDissertatsiyaView, FileDownSahifaView
 from api.views.foydali_havolalar import Foydali_havolalarListView, foydali_havolalardetail
 from api.views.full_text_search import full_text_search
 from api.views.hikmatli_sozlar import Hikmatli_sozlarListView, hikmatli_sozlardetail
@@ -12,7 +12,6 @@ from api.views.ishtirokchilar import IshtirokchilarListView, ishtirokchilardetai
 from api.views.jadidlar import JadidlarListView, jadidlardetail
 from api.views.manbalar import AudiolarListView, audiolardetail, VideolarListView, videolardetail, RasmlarListView, \
     rasmlardetail
-from api.views.matboutlar import MatbuotlarListView, matbuotlardetail
 from api.views.sahifalar import SahifalarListView, sahifalardetail
 from api.views.slayder import SlayderListView, slayderdetail
 from api.views.tadbirlar import KanferensiyalarListView, kanferensiyalardetail, SeminarlarListView, seminarlardetail, \
@@ -84,9 +83,6 @@ urlpatterns = [
     path('tanlovlar/', TanlovlarListView.as_view(), name='tanlovlar-list'),
     path('tanlovlar/<int:pk>/', tanlovlardetail, name='tanlovlar-detail'),
 
-    path('matbuotlar/', MatbuotlarListView.as_view(), name='matbuotlar-list'),
-    path('matbuotlar/<int:pk>/', matbuotlardetail, name='matbuotlar-detail'),
-
 
     path('search/', full_text_search, name='search'),
 
@@ -98,7 +94,6 @@ urlpatterns = [
     path('hotiralar/downland/<int:pk>/', FileDownHotiraView.as_view(), name='hotiralar_downland'),
     path('arxiv_hujjatlar/downland/<int:pk>/', FileDownArxiv_hujjatView.as_view(), name='arxiv_hujjatlar_downland'),
     path('dissertatsiya/downland/<int:pk>/', FileDownDissertatsiyaView.as_view(), name='dissertatsiya_downland'),
-    path('matbuotlar/downland/<int:pk>/', FileDownMatbuotView.as_view(), name='matbuotlar_downland'),
     path('sahifalar/downland/<int:pk>/', FileDownSahifaView.as_view(), name='sahifalar_downland'),
 
 ]

@@ -24,7 +24,7 @@ class MaqolalarFileInline(admin.TabularInline):
 class MaqolalarAdmin(admin.ModelAdmin):
     inlines = [MaqolalarFileInline]
     fields = ('title_uz', 'title_ru', 'jadid', 'image', 'file', 'turkiston_muxtoriyati', 'tadqiqotlar', 'til_va_imlo',
-              'count',)
+              'type', 'count',)
     readonly_fields = ('count',)
 
 
