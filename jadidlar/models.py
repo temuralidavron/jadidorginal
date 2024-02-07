@@ -10,7 +10,7 @@ class Jadid(models.Model):
     create = models.DateTimeField(auto_now_add=True)
     update = models.DateTimeField(auto_now=True)
     image = models.ImageField(upload_to='image/jadid')
-    order = models.IntegerField(default=1000000)
+    order = models.IntegerField(default=1000)
     bio = RichTextField(blank=True, null=True)
 
     def __str__(self):

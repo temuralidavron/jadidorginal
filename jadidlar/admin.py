@@ -22,7 +22,7 @@ class JadidImageInline(admin.TabularInline):
 @admin.register(Jadid)
 class JadidAdmin(admin.ModelAdmin):
     inlines = [JadidImageInline]
-    list_display = ('fullname', 'display_admin_photo',)
+    list_display = ('fullname', 'display_admin_photo', 'order',)
     fields = ('fullname_uz', 'fullname_ru', 'birthday', 'die_day', 'image', 'bio', 'order',)
     list_display_links = ('fullname',)
     search_fields = ('fullname',)
