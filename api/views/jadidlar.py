@@ -17,7 +17,7 @@ class JadidlarListView(ListAPIView):
     pagination_class = ResultsSetPagination
 
     def get_queryset(self):
-        return Jadid.objects.all()
+        return Jadid.objects.all().order_by('order')
 
 @api_view(['GET'])
 def jadidlardetail(request, pk):

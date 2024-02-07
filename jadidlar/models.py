@@ -5,13 +5,13 @@ from django.utils.safestring import mark_safe
 
 class Jadid(models.Model):
     fullname = models.CharField(max_length=255)
-    birthday = models.DateField()
-    die_day = models.DateField()
+    birthday = models.DateField(blank=True, null=True)
+    die_day = models.DateField(blank=True, null=True)
     create = models.DateTimeField(auto_now_add=True)
     update = models.DateTimeField(auto_now=True)
     image = models.ImageField(upload_to='image/jadid')
-    order = models.IntegerField(default=0)
-    bio = RichTextField()
+    order = models.IntegerField(default=1000000)
+    bio = RichTextField(blank=True, null=True)
 
     def __str__(self):
         return self.fullname

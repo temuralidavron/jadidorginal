@@ -6,7 +6,7 @@ from jadidlar.models import Jadid
 
 class Asarlar(models.Model):
     title = models.CharField(max_length=255, verbose_name='nomi')
-    jadid = models.ForeignKey(Jadid, on_delete=models.CASCADE, related_name='asarlar')
+    jadid = models.ForeignKey(Jadid, on_delete=models.CASCADE, related_name='asarlar', null=True, blank=True)
     image = models.ImageField(upload_to='images/', null=True, blank=True)
     file = models.FileField(upload_to='files/', null=True, blank=True)
     count = models.BigIntegerField(null=True, blank=True, default=0)
@@ -85,7 +85,7 @@ class MaqolalarFile(models.Model):
 
 class Tadqiqotlar(models.Model):
     title = models.CharField(max_length=255, verbose_name='nomi')
-    jadid = models.ForeignKey(Jadid, on_delete=models.CASCADE, related_name='tadqiqotlar')
+    jadid = models.ForeignKey(Jadid, on_delete=models.CASCADE, related_name='tadqiqotlar', blank=True, null=True)
     image = models.ImageField(upload_to='images/', null=True, blank=True)
     file = models.FileField(upload_to='files/tadqiqotlar')
     count = models.BigIntegerField(null=True, blank=True, default=0)
@@ -99,7 +99,7 @@ class Tadqiqotlar(models.Model):
         (Tadqiqotlar, 'Tadqiqotlar'),
         (Til_va_imlo, 'Til va imlo'),
     )
-    type = models.CharField(max_length=25, choices=TYPE_CHOICE, verbose_name='turi', default=Turkiston_muxtoriyati)
+    type = models.CharField(max_length=25, choices=TYPE_CHOICE, verbose_name='turi', default=Turkiston_muxtoriyati, blank=True, null=True)
 
     def __str__(self):
         return self.title
@@ -119,7 +119,7 @@ class TadqiqotlarFile(models.Model):
 
 class Sherlar(models.Model):
     title = models.CharField(max_length=255, verbose_name='nomi')
-    jadid = models.ForeignKey(Jadid, on_delete=models.CASCADE, related_name='sherlar')
+    jadid = models.ForeignKey(Jadid, on_delete=models.CASCADE, related_name='sherlar', blank=True, null=True)
     image = models.ImageField(upload_to='images/', null=True, blank=True)
     file = models.FileField(upload_to='files/sherlar')
     count = models.BigIntegerField(null=True, blank=True, default=0)
@@ -133,7 +133,7 @@ class Sherlar(models.Model):
         (Tadqiqotlar, 'Tadqiqotlar'),
         (Til_va_imlo, 'Til va imlo'),
     )
-    type = models.CharField(max_length=25, choices=TYPE_CHOICE, verbose_name='turi', default=Turkiston_muxtoriyati)
+    type = models.CharField(max_length=25, choices=TYPE_CHOICE, verbose_name='turi', default=Turkiston_muxtoriyati, blank=True, null=True)
 
     def __str__(self):
         return self.title
@@ -153,7 +153,7 @@ class SherlarFile(models.Model):
 
 class Hotiralar(models.Model):
     title = models.CharField(max_length=255, verbose_name='nomi')
-    jadid = models.ForeignKey(Jadid, on_delete=models.CASCADE, related_name='hotiralar')
+    jadid = models.ForeignKey(Jadid, on_delete=models.CASCADE, related_name='hotiralar', blank=True, null=True)
     image = models.ImageField(upload_to='images/', null=True, blank=True)
     file = models.FileField(upload_to='files/hotiralar', verbose_name='fayl')
     count = models.BigIntegerField(null=True, blank=True, default=0)
@@ -167,7 +167,7 @@ class Hotiralar(models.Model):
         (Tadqiqotlar, 'Tadqiqotlar'),
         (Til_va_imlo, 'Til va imlo'),
     )
-    type = models.CharField(max_length=25, choices=TYPE_CHOICE, verbose_name='turi', default=Turkiston_muxtoriyati)
+    type = models.CharField(max_length=25, choices=TYPE_CHOICE, verbose_name='turi', default=Turkiston_muxtoriyati, blank=True, null=True)
 
     def __str__(self):
         return self.title
@@ -208,7 +208,7 @@ class Arxiv_hujjatlar(models.Model):
     )
 
     title = models.CharField(max_length=255, verbose_name='nomi')
-    type = models.CharField(max_length=6, choices=TYPE_CHOICE, verbose_name='turi', default=ARXIV)
+    type = models.CharField(max_length=6, choices=TYPE_CHOICE, verbose_name='turi', default=ARXIV, blank=True, null=True)
     image = models.ImageField(upload_to='images/', null=True, blank=True)
     file = models.FileField(upload_to='files/arxiv_hujjatlar', verbose_name='fayl')
     count = models.BigIntegerField(null=True, blank=True, default=0)
@@ -233,7 +233,7 @@ class Arxiv_hujjatlarFile(models.Model):
 class Dissertatsiya(models.Model):
     title = models.CharField(max_length=255, verbose_name='nomi')
     image = models.ImageField(upload_to='images/', null=True, blank=True)
-    file = models.FileField(upload_to='files/dissertatsiya', verbose_name='fayl')
+    file = models.FileField(upload_to='files/dissertatsiya', verbose_name='fayl', blank=True, null=True)
     count = models.BigIntegerField(null=True, blank=True, default=0)
     create = models.DateTimeField(auto_now_add=True, verbose_name='yaratilgan sana')
     update = models.DateTimeField(auto_now=True, verbose_name='o`zgartirilgan sana')
