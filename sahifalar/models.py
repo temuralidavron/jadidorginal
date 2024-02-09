@@ -3,8 +3,8 @@ from django.db import models
 
 
 class Sahifalar(models.Model):
-    title = models.CharField(max_length=255, verbose_name='Sahifa nomi')
-    text = RichTextField(verbose_name='Matn')
+    title = models.CharField(max_length=255, verbose_name='Sahifa nomi', blank=True, null=True)
+    text = RichTextField(verbose_name='Matn', blank=True, null=True)
     image = models.ImageField(upload_to='images/', null=True, blank=True)
     file = models.FileField(upload_to='files/', verbose_name='Fayl')
     count = models.BigIntegerField(null=True, blank=True, default=0)

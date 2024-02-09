@@ -11,7 +11,8 @@ class AsarlarFileInline(admin.TabularInline):
 @admin.register(Asarlar)
 class AsarlarAdmin(admin.ModelAdmin):
     inlines = [AsarlarFileInline]
-    fields = ('title_uz', 'title_ru', 'jadid', 'image', 'file', 'turkiston_muxtoriyati', 'tadqiqotlar', 'til_va_imlo',
+    fields = ('title_uz', 'title_ru', 'title_en', 'jadid', 'image', 'file', 'turkiston_muxtoriyati', 'tadqiqotlar',
+              'til_va_imlo',
               'count')
     readonly_fields = ('count',)
 
@@ -23,7 +24,8 @@ class MaqolalarFileInline(admin.TabularInline):
 @admin.register(Maqolalar)
 class MaqolalarAdmin(admin.ModelAdmin):
     inlines = [MaqolalarFileInline]
-    fields = ('title_uz', 'title_ru', 'jadid', 'image', 'file', 'turkiston_muxtoriyati', 'tadqiqotlar', 'til_va_imlo',
+    fields = ('title_uz', 'title_ru', 'title_en', 'jadid', 'image', 'file', 'turkiston_muxtoriyati', 'tadqiqotlar',
+              'til_va_imlo',
               'type', 'count',)
     readonly_fields = ('count',)
 
@@ -35,7 +37,7 @@ class TadqiqotlarFileInline(admin.TabularInline):
 @admin.register(Tadqiqotlar)
 class TadqiqotlarAdmin(admin.ModelAdmin):
     inlines = [TadqiqotlarFileInline]
-    fields = ('title_uz', 'title_ru', 'jadid', 'image', 'file', 'type', 'count',)
+    fields = ('title_uz', 'title_ru', 'title_en', 'jadid', 'image', 'file', 'type', 'count',)
     readonly_fields = ('count',)
 
 
@@ -46,7 +48,7 @@ class SherlarFileInline(admin.TabularInline):
 @admin.register(Sherlar)
 class SherlarAdmin(admin.ModelAdmin):
     inlines = [SherlarFileInline]
-    fields = ('title_uz', 'title_ru', 'jadid', 'image', 'file', 'type', 'count',)
+    fields = ('title_uz', 'title_ru', 'title_en', 'jadid', 'image', 'file', 'type', 'count',)
     readonly_fields = ('count',)
 
 
@@ -57,7 +59,7 @@ class HotiralarFileInline(admin.TabularInline):
 @admin.register(Hotiralar)
 class HotiralarAdmin(admin.ModelAdmin):
     inlines = [HotiralarFileInline]
-    fields = ('title_uz', 'title_ru', 'jadid', 'image', 'file', 'type', 'count',)
+    fields = ('title_uz', 'title_ru', 'title_en', 'jadid', 'image', 'file', 'type', 'count',)
     readonly_fields = ('count',)
 
 
@@ -68,7 +70,7 @@ class Arxiv_hujjatlarFileInline(admin.TabularInline):
 @admin.register(Arxiv_hujjatlar)
 class Arxiv_hujjatlarAdmin(admin.ModelAdmin):
     inlines = [Arxiv_hujjatlarFileInline]
-    fields = ('title_uz', 'title_ru', 'image', 'file', 'type', 'count',)
+    fields = ('title_uz', 'title_ru', 'title_en', 'image', 'file', 'type', 'count',)
     readonly_fields = ('count',)
 
 
@@ -79,5 +81,5 @@ class DissertatsiyaFileInline(admin.TabularInline):
 @admin.register(Dissertatsiya)
 class DissertatsiyaAdmin(admin.ModelAdmin):
     inlines = [DissertatsiyaFileInline]
-    fields = ('title_uz', 'title_ru', 'image', 'file', 'count',)
+    fields = ('title_uz', 'title_ru', 'title_en', 'image', 'file', 'count',)
     readonly_fields = ('count',)

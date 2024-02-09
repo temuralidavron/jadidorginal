@@ -4,7 +4,7 @@ from django.utils.safestring import mark_safe
 
 
 class Jadid(models.Model):
-    fullname = models.CharField(max_length=255)
+    fullname = models.CharField(max_length=255, blank=True, null=True)
     birthday = models.DateField(blank=True, null=True)
     die_day = models.DateField(blank=True, null=True)
     create = models.DateTimeField(auto_now_add=True)

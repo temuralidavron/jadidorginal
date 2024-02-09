@@ -18,12 +18,11 @@ class IshtirokchilarImageInline(admin.TabularInline):
     extra = 0
 
 
-
 @admin.register(Ishtirokchilar)
 class IshtirokchilarAdmin(admin.ModelAdmin):
     inlines = [IshtirokchilarImageInline]
     list_display = ('fullname', 'display_admin_photo',)
-    fields = ('fullname_uz', 'fullname_ru', 'position_uz', 'position_ru', 'image',)
+    fields = ('fullname_uz', 'fullname_ru', 'fullname_en', 'position_uz', 'position_ru', 'position_en', 'image',)
     list_display_links = ('fullname',)
     search_fields = ('fullname',)
     list_filter = ('fullname',)
@@ -50,9 +49,6 @@ class IshtirokchilarAdmin(admin.ModelAdmin):
     def logo_image(self, obj):
 
         return format_html('<img src="{0}" width="100" height="100" />'.format(obj.logo_image.url))
-
-
-
 
     logo_image.short_description = 'Rasm'
     logo_image.allow_tags = True

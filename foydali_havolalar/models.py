@@ -5,7 +5,7 @@ from django.utils.safestring import mark_safe
 
 
 class Foydali_havolalar(models.Model):
-    title = models.CharField(max_length=100, verbose_name='nomi')
+    title = models.CharField(max_length=100, verbose_name='nomi', blank=True, null=True)
     link = models.URLField(verbose_name='link')
     logo_image = models.ImageField(blank=True, null=True, upload_to='logo_images/')
 

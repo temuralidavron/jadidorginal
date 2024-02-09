@@ -4,8 +4,8 @@ from django.utils.safestring import mark_safe
 
 
 class Kanferensiyalar(models.Model):
-    title = models.CharField(max_length=200, verbose_name='nomi')
-    text = RichTextField()
+    title = models.CharField(max_length=200, verbose_name='nomi', blank=True, null=True)
+    text = RichTextField(blank=True, null=True)
     image = models.ImageField(upload_to='image')
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
@@ -34,8 +34,8 @@ class KanferensiyalarImage(models.Model):
 
 
 class Seminarlar(models.Model):
-    title = models.CharField(max_length=200, verbose_name='nomi')
-    text = RichTextField()
+    title = models.CharField(max_length=200, verbose_name='nomi', blank=True, null=True)
+    text = RichTextField(blank=True, null=True)
     image = models.ImageField(upload_to='image')
     created_at = models.DateTimeField(auto_now_add=True, editable=False)
     updated_at = models.DateTimeField(auto_now=True)
@@ -46,6 +46,7 @@ class Seminarlar(models.Model):
     class Meta:
         verbose_name = 'Seminar'
         verbose_name_plural = 'Seminarlar'
+
 
 class SeminarlarImage(models.Model):
     seminar = models.ForeignKey(Seminarlar, on_delete=models.CASCADE,
@@ -62,11 +63,9 @@ class SeminarlarImage(models.Model):
     admin_photo.allow_tags = True
 
 
-
-
 class Yangiliklar(models.Model):
-    title = models.CharField(max_length=200, verbose_name='nomi')
-    text = RichTextField()
+    title = models.CharField(max_length=200, verbose_name='nomi', blank=True, null=True)
+    text = RichTextField(blank=True, null=True)
     image = models.ImageField(upload_to='image')
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)

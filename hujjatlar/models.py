@@ -5,7 +5,7 @@ from jadidlar.models import Jadid
 
 
 class Asarlar(models.Model):
-    title = models.CharField(max_length=255, verbose_name='nomi')
+    title = models.CharField(max_length=255, verbose_name='nomi', blank=True, null=True)
     jadid = models.ForeignKey(Jadid, on_delete=models.CASCADE, related_name='asarlar', null=True, blank=True)
     image = models.ImageField(upload_to='images/', null=True, blank=True)
     file = models.FileField(upload_to='files/', null=True, blank=True)
@@ -33,7 +33,7 @@ class AsarlarFile(models.Model):
 
 
 class Maqolalar(models.Model):
-    title = models.CharField(max_length=255, verbose_name='nomi')
+    title = models.CharField(max_length=255, verbose_name='nomi', blank=True, null=True)
     jadid = models.ForeignKey(Jadid, on_delete=models.CASCADE,  related_name='maqolalar', blank=True, null=True)
     image = models.ImageField(upload_to='images/', null=True, blank=True)
     file = models.FileField(upload_to='files/maqolalar', verbose_name='fayl')
@@ -84,7 +84,7 @@ class MaqolalarFile(models.Model):
 
 
 class Tadqiqotlar(models.Model):
-    title = models.CharField(max_length=255, verbose_name='nomi')
+    title = models.CharField(max_length=255, verbose_name='nomi', blank=True, null=True)
     jadid = models.ForeignKey(Jadid, on_delete=models.CASCADE, related_name='tadqiqotlar', blank=True, null=True)
     image = models.ImageField(upload_to='images/', null=True, blank=True)
     file = models.FileField(upload_to='files/tadqiqotlar')
@@ -118,7 +118,7 @@ class TadqiqotlarFile(models.Model):
 
 
 class Sherlar(models.Model):
-    title = models.CharField(max_length=255, verbose_name='nomi')
+    title = models.CharField(max_length=255, verbose_name='nomi', blank=True, null=True)
     jadid = models.ForeignKey(Jadid, on_delete=models.CASCADE, related_name='sherlar', blank=True, null=True)
     image = models.ImageField(upload_to='images/', null=True, blank=True)
     file = models.FileField(upload_to='files/sherlar')
@@ -152,7 +152,7 @@ class SherlarFile(models.Model):
 
 
 class Hotiralar(models.Model):
-    title = models.CharField(max_length=255, verbose_name='nomi')
+    title = models.CharField(max_length=255, verbose_name='nomi', blank=True, null=True)
     jadid = models.ForeignKey(Jadid, on_delete=models.CASCADE, related_name='hotiralar', blank=True, null=True)
     image = models.ImageField(upload_to='images/', null=True, blank=True)
     file = models.FileField(upload_to='files/hotiralar', verbose_name='fayl')
@@ -207,7 +207,7 @@ class Arxiv_hujjatlar(models.Model):
         (SKANER, 'SKANER'),
     )
 
-    title = models.CharField(max_length=255, verbose_name='nomi')
+    title = models.CharField(max_length=255, verbose_name='nomi', blank=True, null=True)
     type = models.CharField(max_length=6, choices=TYPE_CHOICE, verbose_name='turi', default=ARXIV, blank=True, null=True)
     image = models.ImageField(upload_to='images/', null=True, blank=True)
     file = models.FileField(upload_to='files/arxiv_hujjatlar', verbose_name='fayl')
@@ -231,7 +231,7 @@ class Arxiv_hujjatlarFile(models.Model):
 
 
 class Dissertatsiya(models.Model):
-    title = models.CharField(max_length=255, verbose_name='nomi')
+    title = models.CharField(max_length=255, verbose_name='nomi', blank=True, null=True)
     image = models.ImageField(upload_to='images/', null=True, blank=True)
     file = models.FileField(upload_to='files/dissertatsiya', verbose_name='fayl', blank=True, null=True)
     count = models.BigIntegerField(null=True, blank=True, default=0)

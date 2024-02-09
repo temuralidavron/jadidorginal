@@ -23,7 +23,7 @@ class SlayderImageInline(admin.TabularInline):
 class SlayderAdmin(admin.ModelAdmin):
     inlines = [SlayderImageInline]
     list_display = ('title', 'display_admin_photo',)
-    fields = ('title_uz', 'title_ru', 'text_uz', 'text_ru', 'image', 'citations',)
+    fields = ('title_uz', 'title_ru', 'title_en', 'text_uz', 'text_ru', 'text_en', 'image', 'citations',)
     list_display_links = ('title',)
     search_fields = ('title',)
     list_filter = ('title',)

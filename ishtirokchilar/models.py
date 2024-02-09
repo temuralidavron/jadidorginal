@@ -3,8 +3,8 @@ from django.utils.safestring import mark_safe
 
 
 class Ishtirokchilar(models.Model):
-    fullname = models.CharField(max_length=50)
-    position = models.CharField(max_length=100, verbose_name='Lavozimi')
+    fullname = models.CharField(max_length=100, blank=True, null=True)
+    position = models.CharField(max_length=100, verbose_name='Lavozimi', blank=True, null=True)
     image = models.ImageField(upload_to='image')
 
     def __str__(self):
@@ -16,7 +16,7 @@ class Ishtirokchilar(models.Model):
 
 
 class IshtirokchilarImage(models.Model):
-    foydali_havola = models.ForeignKey(Ishtirokchilar, on_delete=models.CASCADE,
+    ishtirokchilar = models.ForeignKey(Ishtirokchilar, on_delete=models.CASCADE,
                                        related_name='ishtirokchi_images')
     image = models.ImageField(blank=True, null=True)
 

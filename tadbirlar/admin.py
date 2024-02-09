@@ -23,7 +23,7 @@ class KanferensiyalarImageInline(admin.TabularInline):
 class KanferensiyalarAdmin(admin.ModelAdmin):
     inlines = [KanferensiyalarImageInline]
     list_display = ('title', 'display_admin_photo', 'created_at', 'updated_at',)
-    fields = ('title_uz', 'title_ru', 'text_uz', 'text_ru', 'image',)
+    fields = ('title_uz', 'title_ru', 'title_en', 'text_uz', 'text_ru', 'text_en', 'image',)
     list_display_links = ('title',)
     search_fields = ('title',)
     list_filter = ('title',)
@@ -75,7 +75,7 @@ class SeminarlarImageInline(admin.TabularInline):
 class SeminarlarAdmin(admin.ModelAdmin):
     inlines = [SeminarlarImageInline]
     list_display = ('title', 'display_admin_photo', 'created_at', 'updated_at',)
-    fields = ('title_uz', 'title_ru', 'text_uz', 'text_ru', 'image',)
+    fields = ('title_uz', 'title_ru', 'title_en', 'text_uz', 'text_ru', 'text_en', 'image',)
     list_display_links = ('title',)
     search_fields = ('title',)
     list_filter = ('title',)
@@ -127,7 +127,7 @@ class YangiliklarImageInline(admin.TabularInline):
 class YangiliklarAdmin(admin.ModelAdmin):
     inlines = [YangiliklarImageInline]
     list_display = ('title', 'display_admin_photo', 'created_at', 'updated_at',)
-    fields = ('title_uz', 'title_ru', 'text_uz', 'text_ru', 'image',)
+    fields = ('title_uz', 'title_ru', 'title_en', 'text_uz', 'text_ru', 'text_en', 'image',)
     list_display_links = ('title',)
     search_fields = ('title',)
     list_filter = ('title',)
