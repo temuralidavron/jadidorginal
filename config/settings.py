@@ -29,7 +29,6 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['jadidlar.pythonanywhere.com', '*']
 
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -63,10 +62,9 @@ INSTALLED_APPS = [
 ]
 
 REST_FRAMEWORK = {
-    'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend'],
-    # 'DEFAULT_AUTHENTICATION_CLASSES': [
-    #     'rest_framework_simplejwt.authentication.JWTAuthentication',
-    # ],
+    'DEFAULT_FILTER_BACKENDS': ('django_filters.rest_framework.DjangoFilterBackend'),
+    'DEFAULT_AUTHENTICATION_CLASSES': ('rest_framework_simplejwt.authentication.JWTAuthentication',),
+
 }
 
 MIDDLEWARE = [
@@ -150,7 +148,6 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
 
-
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
@@ -162,7 +159,6 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 STATICFILES_DIRS = [BASE_DIR / 'static', ]
 
-
 CKEDITOR_UPLOAD_PATH = "uploads/"
 CKEDITOR_RESTRICT_BY_USER = True
 CKEDITOR_CONFIGS = {
@@ -170,7 +166,6 @@ CKEDITOR_CONFIGS = {
         'toolbar': 'full',
     },
 }
-
 
 CORS_ORIGIN_ALLOW_ALL = True
 
@@ -211,16 +206,14 @@ JAZZMIN_SETTINGS = {
     "changeform_format": "collapsible",
 
     # "usermenu_links": [
-        # {"name": "Profile", "url": "profile"},
-        # {"name": "Logout", "url": "logout"},
-        # {"name": "Login", "url": "login"},
-        # {"name": "Signup", "url": "signup"},
+    # {"name": "Profile", "url": "profile"},
+    # {"name": "Logout", "url": "logout"},
+    # {"name": "Login", "url": "login"},
+    # {"name": "Signup", "url": "signup"},
 
-#     ]
-
+    #     ]
 
 }
-
 
 JAZZMIN_UI_TWEAKS = {
     "navbar_small_text": False,
@@ -254,4 +247,3 @@ JAZZMIN_UI_TWEAKS = {
     },
     "actions_sticky_top": False
 }
-
